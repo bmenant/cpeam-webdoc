@@ -3,11 +3,24 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Benjamin Menant -- Lead Front Developper, second photograph -- @bmenant
+    Élodie Miramon -- Project Manager, second camerawoman, second interviewer
+    Céline Lamer -- Web designer & UX, first photograph, video editor
+    Philippe Blaye -- Web writter, first interviewer
+    Jordan Mayoukou -- Web writter, third cameraman
+    Célia Charrier -- First Camerawoman, video editor
+    Marine Marseau -- Sound engineer, video editor, web designer
+    Bruno Illave Bonzano -- Staffing
+    Héléna Lescanne -- Macking-off
+    Cyrcée Millan -- Web writter, Macking-off
+
 
 # THANKS
 
-    <name>
+    Jean-François Dareths
+    Luc De la Tienda
+
+    @todo interviewés
 
 # TECHNOLOGY COLOPHON
 
