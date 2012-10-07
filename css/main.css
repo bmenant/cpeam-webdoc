@@ -93,6 +93,21 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
+/*
+ * Debug styles
+ */
+/*
+section {
+    background-color: #FBB;
+}
+*/
+
+
+
+
+
+
+
 
 
 
@@ -218,6 +233,59 @@ textarea {
 
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
+
+/*
+ * Main layout
+ */
+
+body {
+    width: 60em; /* 960px */
+    margin: 0 auto;
+}
+
+/*
+ * Panes layout
+ */
+
+header + section {
+    display: table;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+    section > .column {
+        display: table-column;
+        width: 10em; /* 160px */
+   -moz-transition: all .2s;
+-webkit-transition: all .2s;
+     -o-transition: all .2s;
+    -ms-transition: all .2s;
+        transition: all .2s;
+    }
+    section > .closed-column {
+        width: 4em; /* 64px */
+    }
+    section > .opened-column {
+        width: 40em; /* 640px */
+    }
+    article {
+        display: table-cell;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+/*
+ * Video size
+ */
+
+article video {
+    width: 40em; /* 640px */
+    height: 22.5em; /* 360px */
+}
+
+
+
+
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
