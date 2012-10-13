@@ -234,6 +234,7 @@ section {
 @media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
 
+
 /*
  * Main layout
  */
@@ -252,6 +253,9 @@ header + section {
     table-layout: fixed;
     border-collapse: collapse;
     width: 100%;
+   -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
+-webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
+        box-shadow: 0 0 1em rgba(0,0,0,.6);
 }
     section > .column {
         display: table-column;
@@ -273,6 +277,23 @@ header + section {
         overflow: hidden;
         cursor: pointer;
     }
+        article > div {
+            position: relative;
+        }
+        article .related-videos {
+            position: absolute;
+            top: 30%;
+            bottom: 30%;
+            left: 15%;
+            right: 15%;
+            color: #FFF;
+            background: #555;
+            background: rgba(0,0,0,.6);
+       -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
+    -webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
+            box-shadow: 0 0 1em rgba(0,0,0,.6);
+            cursor: auto;
+        }
 
 /*
  * Panes decoration
@@ -285,6 +306,7 @@ header + section {
  */
 
 article video {
+    display: block;
     width: 40em; /* 640px */
     height: 22.5em; /* 360px */
 }

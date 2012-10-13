@@ -7,6 +7,8 @@
 
 (function($) {
 
+  var $video_wrapper = $('#video-wrapper');
+
   /**
    * ADDITIONAL CONTENT LOADER
    *
@@ -41,7 +43,7 @@
 
       switch (_action) {
         case 'play':
-          videoElt.currentTime = videoElt.initialTime;
+          videoElt.currentTime = 0;
           videoElt.play();
           break;
         case 'stop':
@@ -55,6 +57,7 @@
 
     return this;
   };
+
 
   /**
    * VIDEO MENU
@@ -87,10 +90,30 @@
             .addClass('closed-column')
             .removeClass('opened-column');
         }
-      },
-      // DOM elements & Event Listeners
-      $video_wrapper = $('#video-wrapper')
-        .on('click', 'article', cols_click_handler);
+      };
+
+      $video_wrapper.on('click', 'article', cols_click_handler);
+  });
+
+  /**
+   * INNER VIDEO MENU
+   * Proposes two videos at the end of the video
+   *
+   */
+  $(function () {
+    var
+      // Event handlers
+      videos_end_handler = function (evt) {
+        var
+          $target = $(evt.target),
+          $related_videos = $target.next('div.related-videos')
+            .removeClass('hidden');
+        console.log($related_videos);
+      };
+
+      // DOM elements & Event listeners
+      $('video', $video_wrapper).on('ended', videos_end_handler);
+
   });
 
   /**
