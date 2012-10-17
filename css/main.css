@@ -102,8 +102,22 @@ section {
 }
 */
 
-
-
+/** 
+ * Webfont definitions
+ */
+@font-face {
+    font-family: 'Rupture';
+    src: url('fonts/rupture_web/rupture-webfont.eot');
+    src: url('fonts/rupture_web/rupture-webfont.eot?#iefix') format('eot'),
+    url('fonts/rupture_web/rupture-webfont.woff') format('woff'),
+    url('fonts/rupture_web/rupture-webfont.ttf') format('truetype'),
+    url('fonts/rupture_web/rupture-webfont.svg#webfontgcwKlGj6') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+  font-family: Rupture;
+}
 
 
 
