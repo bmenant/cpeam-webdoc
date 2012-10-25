@@ -102,7 +102,7 @@ section {
 }
 */
 
-/** 
+/**
  * Webfont definitions
  */
 @font-face {
@@ -257,6 +257,46 @@ body {
     width: 60em; /* 960px */
     margin: 0 auto;
 }
+    body > header,
+    body > section,
+    body > footer {
+       -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
+    -webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
+            box-shadow: 0 0 1em rgba(0,0,0,.6);
+    }
+    body > section {
+        margin-bottom: 5em;
+    }
+
+/*
+ * Header
+ */
+
+header {
+    overflow: hidden;
+    margin-bottom: 5em;
+    text-align: center;
+}
+    header > h1 {
+    }
+    header > ul {
+        margin: 0 0 .8em;
+        padding: 0;
+        font-size: 1.25em;
+        line-height: 1.6em;
+    }
+    header li {
+        display: inline;
+    }
+
+/*
+ * Footer
+ */
+
+footer {
+
+}
+
 
 /*
  * Panes layout
@@ -267,9 +307,6 @@ header + section {
     table-layout: fixed;
     border-collapse: collapse;
     width: 100%;
-   -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
--webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
-        box-shadow: 0 0 1em rgba(0,0,0,.6);
 }
     section > .column {
         display: table-column;
@@ -326,7 +363,9 @@ article video {
 }
 
 
-
+/*
+ * Extras content
+ */
 
 }
 
