@@ -277,9 +277,20 @@ header {
     margin-bottom: 5em;
     text-align: center;
 }
-    header > h1 {
+    header > h1::before,
+    header > h1::after {
+        content: '';
+        display: inline-block;
+        margin: 0 30px;
+        width: 54px;
+        height: 41px;
+        vertical-align: text-top;
+        background: url('../img/sprite.png') 0 0 no-repeat;
     }
-    header > ul {
+    header > h1::after {
+        background-position: -54px 0;
+    }
+    header ul {
         margin: 0 0 .8em;
         padding: 0;
         font-size: 1.25em;
@@ -287,6 +298,19 @@ header {
     }
     header li {
         display: inline;
+    }
+    header li::before,
+    header li:last-of-type::after {
+        content: '';
+        display: inline-block;
+        margin: 0 7px 0 0;
+        width: 34px;
+        height: 19px;
+        vertical-align: text-top;
+        background: url('../img/sprite.png') 0 -41px no-repeat;
+    }
+    header li:last-of-type::after {
+        margin: 0 0 0 7px;
     }
 
 /*
