@@ -20,7 +20,7 @@ textarea {
 
 body {
     font-size: 1em;
-    line-height: 1.4;
+    line-height: 1.25;
 }
 
 /*
@@ -252,21 +252,21 @@ body {
 /*
  * Main layout
  */
-
-body {
-    width: 60em; /* 960px */
-    margin: 0 auto;
+html {
+    background:
+        #EEE
+        url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/cream_dust.png")
+        repeat
+        0px 0px;
 }
-    body > header,
-    body > section,
-    body > footer {
-       -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
-    -webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
-            box-shadow: 0 0 1em rgba(0,0,0,.6);
-    }
-    body > section {
-        margin-bottom: 5em;
-    }
+body > header,
+body > .video-wrapper,
+.additional-content-wrapper > div,
+footer > div {
+    width: 60em; /* 960px */
+    margin-left: auto;
+    margin-right: auto;
+}
 
 /*
  * Header
@@ -290,6 +290,11 @@ header {
     header > h1::after {
         background-position: -54px 0;
     }
+    header h1 span {
+        font-size: 0.5em;
+        line-height: 2em;
+        vertical-align: middle;
+    }
     header ul {
         margin: 0 0 .8em;
         padding: 0;
@@ -312,25 +317,66 @@ header {
     header li:last-of-type::after {
         margin: 0 0 0 7px;
     }
+    header a:link {
+        color: #222;
+        text-decoration: none;
+    }
+    header a:visited {
+        color: #444;
+    }
+    header a:hover,
+    header a:active,
+    header a:focus {
+        text-decoration: underline;
+    }
+
+    /* Sticky menu */
+    header .affix {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        background-color: rgba(255,255,255,.9);
+   -moz-box-shadow: 0 0 .8em rgba(255,255,255,1);
+-webkit-box-shadow: 0 0 .8em rgba(255,255,255,1);
+        box-shadow: 0 0 .8em rgba(255,255,255,1);
+    }
+    header nav {
+        min-height: 3em;
+    }
 
 /*
  * Footer
  */
 
 footer {
-
+    padding: 2.5em 0 7.5em;
+    background: rgba(60,20,0,.4);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(60,20,0,.8) 0%, rgba(60,20,0,.4) 100%);
+    background: -webkit-gradient(radial, 0 200%, 0px, center center, 100%, color-stop(0%,rgba(60,20,0,.8)), color-stop(100%,rgba(60,20,0,.4)));
+    background: -webkit-radial-gradient(0 200%, ellipse cover, rgba(60,20,0,.8) 0%, rgba(60,20,0,.4) 100%);
+    background: -o-radial-gradient(0 200%, ellipse cover, rgba(60,20,0,.8) 0%, rgba(60,20,0,.4) 100%);
+    background: -ms-radial-gradient(0 200%, ellipse cover, rgba(60,20,0,.8) 0%, rgba(60,20,0,.4) 100%);
+    background: radial-gradient(ellipse at 0 200%, rgba(60,20,0,.8) 0%, rgba(60,20,0,.4) 100%);
 }
-
+    footer > div > * {
+        float: left;
+        width: 25%; /* 240px */
+    }
 
 /*
  * Panes layout
  */
 
-header + section {
+.video-wrapper {
     display: table;
     table-layout: fixed;
     border-collapse: collapse;
-    width: 100%;
+    margin-bottom: 7.5em;
+   -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
+-webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
+        box-shadow: 0 0 1em rgba(0,0,0,.6);
 }
     section > .column {
         display: table-column;
@@ -388,8 +434,28 @@ article video {
 
 
 /*
- * Extras content
+ * Additional content
  */
+
+.additional-content-wrapper {
+    padding: 0 0 3em;
+    overflow: hidden;
+    text-align: center;
+   -moz-box-shadow: 0 1em 1em -.8em rgba(0,0,0,.6);
+-webkit-box-shadow: 0 1em 1em -.8em rgba(0,0,0,.6);
+        box-shadow: 0 1em 1em -.8em rgba(0,0,0,.6);
+}
+.additional-content-wrapper.opened {
+    padding: 0 0 5em;
+   -moz-box-shadow: 0 .2em 1em rgba(0,0,0,.6);
+-webkit-box-shadow: 0 .2em 1em rgba(0,0,0,.6);
+        box-shadow: 0 .2em 1em rgba(0,0,0,.6);
+}
+.additional-content-wrapper img {
+   -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
+-webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
+        box-shadow: 0 0 1em rgba(0,0,0,.6);
+}
 
 }
 

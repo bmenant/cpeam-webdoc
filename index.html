@@ -18,7 +18,7 @@
     </head>
     <body>
         <header>
-            <h1>Chausse ton univers</h1>
+            <h1>Chausse <span>ton</span> univers</h1>
 
             <!-- Main sticky navigation menu -->
             <nav>
@@ -31,7 +31,7 @@
         </header>
 
         <!-- Main content; video wrapper -->
-        <section id="video-wrapper">
+        <section class="video-wrapper" id="video-wrapper">
             <!-- Columns elements for table-layout -->
             <div id="video-col-1"  class="column"></div><div id="video-col-2" class="column"></div><div id="video-col-3" class="column"></div><div id="video-col-4" class="column"></div><div id="video-col-5" class="column"></div>
 
@@ -89,15 +89,54 @@
         </section>
 
         <!-- Additional content -->
-        <section aria-live="polite" id="dynamic-content-wrapper" class="hidden"></section>
+        <section class="additional-content-wrapper">
+            <div aria-live="polite" id="dynamic-content-wrapper" class="hidden"></div>
+        </section>
 
-        <footer>
-            Footer stuff
+        <footer class="clearfix">
+            <div>
+                <nav>
+                    <h3>Voir, revoir</h3>
+                    <ul>
+                        <li><a>Film</a></li>
+                        <li><a>Bonus</a></li>
+                        <li><a>Crédits</a></li>
+                        <li><a>Contact</a></li>
+                    </ul>
+                </nav>
+
+                <address>
+                    <h3>Équipe</h3>
+                    <ul>
+                        <li>Pierre</li>
+                        <li>Paul</li>
+                        <li>Jacques</li>
+                    </ul>
+                </address>
+
+                <div>
+                    <h3>Merci à tous !</h3>
+                    <ul>
+                        <li>Pierre</li>
+                        <li>Paul</li>
+                        <li>Jacques</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Mentions légales</h3>
+                    <ul>
+                        <li>Hébergé chez …</li>
+                        <li>Tous les contenus sont protégés par une licence CC-BY-SA</li>
+                    </ul>
+                <div>
+            </div>
         </footer>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.0.min.js"><\/script>')</script>
         <!--<script src="js/plugins.js"></script>-->
+        <script src="js/vendor/bootstrap-affix.js"></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

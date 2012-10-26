@@ -16,15 +16,17 @@
    * @todo Add a loading image, and smooth effect
    */
   $.fn.additionalContentLoader = function (_contentName) {
-    var
-      _path = 'fragments/' + _contentName + '.html',
-      $hook = $('#dynamic-content-wrapper')
-        .addClass('loading')
-        .removeClass('hidden')
-        .load(_path, function () {
-          $hook.removeClass('loading');
-          document.location.hash = '#' + _contentName;
-        });
+    var _path = 'fragments/' + _contentName + '.html'
+      , $hook = $('#dynamic-content-wrapper')
+          .addClass('loading')
+          .removeClass('hidden')
+      , $parentHook = $hook.parent()
+          .addClass('opened');
+
+    $hook.load(_path, function () {
+      $hook.removeClass('loading');
+      document.location.hash = '#' + _contentName;
+    });
   };
 
 
@@ -108,7 +110,6 @@
           $target = $(evt.target),
           $related_videos = $target.next('div.related-videos')
             .removeClass('hidden');
-        console.log($related_videos);
       };
 
       // DOM elements & Event listeners
@@ -151,6 +152,14 @@
 
     // Autoload content from URL hash
     menu_controller(document.location.hash.substr(1));
+  });
+
+  /**
+   * AFFIX MENU
+   * (thanks to Twitter Bootstrap jQuery plugin)
+   */
+  $(function() {
+    var $menu = $('#primary-menu').affix({offset: 96});
   });
 
 })(jQuery);
