@@ -13,22 +13,78 @@
    * ADDITIONAL CONTENT LOADER
    *
    * @param {String} _contentName  The name of the file to request.
-   * @todo Add a loading image, and smooth effect
    */
   $.fn.additionalContentLoader = function (_contentName) {
     var _path = 'fragments/' + _contentName + '.html'
-      , $hook = $('#dynamic-content-wrapper')
+      , $hook = $('#additional-content-wrapper')
           .addClass('loading')
-          .removeClass('hidden')
-      , $parentHook = $hook.parent()
-          .addClass('opened');
+          .removeClass('hidden');
 
-    $hook.load(_path, function () {
-      $hook.removeClass('loading');
-      document.location.hash = '#' + _contentName;
-    });
+    $hook.children()
+      .empty()
+      .load(_path, function () {
+        $hook.removeClass('loading');
+        document.location.hash = '#' + _contentName;
+      });
   };
 
+  /**
+   * SECONDARY ELEMENTS CONTROLLER
+   * Hide useless elements when a video is playing.
+   * Keeps a look at user action to display back these elements.
+   *
+   * @param {String} _action Hide or show elements?
+   */
+  $.fn.secondaryElementsController = function (_action) {
+    var _hide_again
+        // jQuery objects
+      , $body = $('body')
+      , $videoWrapper = $('#video-wrapper')
+      , $secondaryElements = $('header, footer, #additional-content-wrapper')
+        // Helpers
+      , hide = function () { $secondaryElements.addClass('opacity-zero'); }
+      , show = function () { $secondaryElements.removeClass('opacity-zero'); }
+        // Event handlers
+      , mousemove_body_handler = function (evt) {
+          // Mouse moves somewhere else than the videos?
+          // Ok, show all!
+          if (!$videoWrapper.is(evt.target)
+          &&  !jQuery.contains($videoWrapper[0], evt.target)) {
+            window.clearTimeout(_hide_again);
+            show();
+            _hide_again = window.setTimeout(hide, 1000);
+          }
+        }
+      , click_body_handler = function (evt) {
+          // Clicks somewhere else than the videos?
+          // Ok, show all and stop the hidder stuff!
+          if (!$videoWrapper.is(evt.target)
+          &&  !jQuery.contains($videoWrapper[0], evt.target)) {
+            window.clearTimeout(_hide_again);
+            $body
+              .off('mousemove', mousemove_body_handler)
+              .off('click', click_body_handler);
+            show();
+          }
+        };
+
+    switch (_action) {
+      case 'hide':
+        hide();
+        $body
+          .on('mousemove', mousemove_body_handler)
+          .on('click', click_body_handler);
+        return;
+      case 'show':
+      default:
+        if (jQuery.isNumeric(_hide_again)) window.clearTimeout(_hide_again);
+        $body
+          .off('mousemove', mousemove_body_handler)
+          .off('click', click_body_handler);
+        show();
+        return;
+    }
+  }
 
   /**
    * VIDEO CONTROLLER
@@ -47,8 +103,10 @@
         case 'play':
           videoElt.currentTime = 0;
           videoElt.play();
+          $.fn.secondaryElementsController('hide');
           break;
         case 'stop':
+          $.fn.secondaryElementsController('show');
           videoElt.pause();
           break;
         default:
@@ -71,10 +129,9 @@
       cols_click_handler = function (evt) {
         evt.preventDefault();
 
-        var
-          _id = this.id.charAt(this.id.length - 1),
-          $col = $('#video-col-' + _id, $video_wrapper),
-          $columns = $('div.column', $video_wrapper);
+        var _id = this.id.charAt(this.id.length - 1)
+          , $col = $('#video-col-' + _id, $video_wrapper)
+          , $columns = $('div.column', $video_wrapper);
 
         if (!$col.hasClass('opened-column')) {
           // Stop all videos
@@ -106,10 +163,9 @@
     var
       // Event handlers
       videos_end_handler = function (evt) {
-        var
-          $target = $(evt.target),
-          $related_videos = $target.next('div.related-videos')
-            .removeClass('hidden');
+        var $target = $(evt.target)
+          , $related_videos = $target.next('div.related-videos')
+              .removeClass('hidden');
       };
 
       // DOM elements & Event listeners

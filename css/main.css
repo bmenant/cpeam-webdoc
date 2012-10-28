@@ -252,20 +252,45 @@ body {
 /*
  * Main layout
  */
-html {
+html, body {
+    height: 100%;
     background:
         #EEE
         url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/cream_dust.png")
         repeat
         0px 0px;
 }
-body > header,
-body > .video-wrapper,
+body > div {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -15em;
+}
+header,
+.video-wrapper,
 .additional-content-wrapper > div,
 footer > div {
     width: 60em; /* 960px */
     margin-left: auto;
     margin-right: auto;
+}
+
+/* Secondary elements to hide when a video is playing. */
+header,
+footer,
+.additional-content-wrapper {
+    opacity: 1;
+   -moz-transition: opacity .5s ease 0s;
+-webkit-transition: opacity .5s ease 0s;
+     -o-transition: opacity .5s ease 0s;
+        transition: opacity .5s ease 0s;
+}
+.opacity-zero {
+    opacity: 0;
+   -moz-transition: opacity 4s ease-in 3s !important;
+-webkit-transition: opacity 4s ease-in 3s !important;
+     -o-transition: opacity 4s ease-in 3s !important;
+        transition: opacity 4s ease-in 3s !important;
 }
 
 /*
@@ -327,6 +352,7 @@ header {
     header a:hover,
     header a:active,
     header a:focus {
+        color: #000;
         text-decoration: underline;
     }
 
@@ -338,9 +364,9 @@ header {
         right: 0;
         z-index: 10;
         background-color: rgba(255,255,255,.9);
-   -moz-box-shadow: 0 0 .8em rgba(255,255,255,1);
--webkit-box-shadow: 0 0 .8em rgba(255,255,255,1);
-        box-shadow: 0 0 .8em rgba(255,255,255,1);
+   -moz-box-shadow: 0 0 .8em .2em rgba(255,255,255,.9);
+-webkit-box-shadow: 0 0 .8em .2em rgba(255,255,255,.9);
+        box-shadow: 0 0 .8em .2em rgba(255,255,255,.9);
     }
     header nav {
         min-height: 3em;
@@ -349,9 +375,11 @@ header {
 /*
  * Footer
  */
-
+.footer-pusher {
+    height: 20em;
+}
 footer {
-    padding: 2.5em 0 7.5em;
+    padding: 2.5em 0 5em;
     background: rgba(60,20,0,.4);
     background: -moz-radial-gradient(center, ellipse cover, rgba(60,20,0,.8) 0%, rgba(60,20,0,.4) 100%);
     background: -webkit-gradient(radial, 0 200%, 0px, center center, 100%, color-stop(0%,rgba(60,20,0,.8)), color-stop(100%,rgba(60,20,0,.4)));
@@ -359,6 +387,9 @@ footer {
     background: -o-radial-gradient(0 200%, ellipse cover, rgba(60,20,0,.8) 0%, rgba(60,20,0,.4) 100%);
     background: -ms-radial-gradient(0 200%, ellipse cover, rgba(60,20,0,.8) 0%, rgba(60,20,0,.4) 100%);
     background: radial-gradient(ellipse at 0 200%, rgba(60,20,0,.8) 0%, rgba(60,20,0,.4) 100%);
+   -moz-box-shadow: 0 0 1em rgba(0,0,0,.5);
+-webkit-box-shadow: 0 0 1em rgba(0,0,0,.5);
+        box-shadow: 0 0 1em rgba(0,0,0,.5);
 }
     footer > div > * {
         float: left;
@@ -373,7 +404,7 @@ footer {
     display: table;
     table-layout: fixed;
     border-collapse: collapse;
-    margin-bottom: 7.5em;
+    margin-bottom: 5em;
    -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
 -webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
         box-shadow: 0 0 1em rgba(0,0,0,.6);
@@ -438,18 +469,44 @@ article video {
  */
 
 .additional-content-wrapper {
-    padding: 0 0 3em;
-    overflow: hidden;
     text-align: center;
-   -moz-box-shadow: 0 1em 1em -.8em rgba(0,0,0,.6);
--webkit-box-shadow: 0 1em 1em -.8em rgba(0,0,0,.6);
-        box-shadow: 0 1em 1em -.8em rgba(0,0,0,.6);
 }
-.additional-content-wrapper.opened {
-    padding: 0 0 5em;
-   -moz-box-shadow: 0 .2em 1em rgba(0,0,0,.6);
--webkit-box-shadow: 0 .2em 1em rgba(0,0,0,.6);
-        box-shadow: 0 .2em 1em rgba(0,0,0,.6);
+.additional-content-wrapper h2::after {
+    content: ' ';
+    display: block;
+    width: 100%;
+    height: 1em;
+    margin: .625em 0 1.25em;
+    background: url('../img/sprite.png') no-repeat 50% -60px;
+}
+@-moz-keyframes additionnal-content-loading {
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-webkit-keyframes additionnal-content-loading {
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+@-o-keyframes additionnal-content-loading {
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes additionnal-content-loading {
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+}
+.additional-content-wrapper.loading > div {
+    height: 2.5em;
+    margin: 10em auto 2.5em;
+    background: url('../img/sprite.png') no-repeat 50% -60px;
+   -moz-animation: additionnal-content-loading 3s ease infinite;
+-webkit-animation: additionnal-content-loading 3s ease infinite;
+     -o-animation: additionnal-content-loading 3s ease infinite;
+        animation: additionnal-content-loading 3s ease infinite;
 }
 .additional-content-wrapper img {
    -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
