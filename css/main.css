@@ -304,7 +304,7 @@ header {
 }
     header > h1::before,
     header > h1::after {
-        content: '';
+        content: ' ';
         display: inline-block;
         margin: 0 30px;
         width: 54px;
@@ -331,29 +331,16 @@ header {
     }
     header li::before,
     header li:last-of-type::after {
-        content: '';
+        content: ' ';
         display: inline-block;
         margin: 0 7px 0 0;
         width: 34px;
         height: 19px;
         vertical-align: text-top;
-        background: url('../img/sprite.png') 0 -41px no-repeat;
+        background: url('../img/sprite.png') 0 -72px no-repeat;
     }
     header li:last-of-type::after {
         margin: 0 0 0 7px;
-    }
-    header a:link {
-        color: #222;
-        text-decoration: none;
-    }
-    header a:visited {
-        color: #444;
-    }
-    header a:hover,
-    header a:active,
-    header a:focus {
-        color: #000;
-        text-decoration: underline;
     }
 
     /* Sticky menu */
@@ -395,6 +382,49 @@ footer {
         float: left;
         width: 25%; /* 240px */
     }
+    footer ul {
+        padding: 0;
+    }
+        footer li {
+            list-style: none;
+        }
+        footer li::before {
+            content: ' ';
+            display: inline-block;
+            margin: 0 7px 0 0;
+            width: 18px;
+            height: 10px;
+            vertical-align: middle;
+            background: url('../img/sprite.png') -34px -72px no-repeat;
+        }
+
+/**
+ * Links
+ */
+
+header a:link,
+footer a:link,
+.additional-content-wrapper > nav a:link,
+.additional-content-wrapper > nav a:visited {
+    color: #222;
+    text-decoration: none;
+}
+header a:visited,
+footer a:visited {
+    color: #444;
+}
+header a:hover,
+header a:active,
+header a:focus,
+footer a:hover,
+footer a:active,
+footer a:focus,
+.additional-content-wrapper > nav  a:hover,
+.additional-content-wrapper > nav  a:active,
+.additional-content-wrapper > nav  a:focus {
+    color: #000;
+    text-decoration: underline;
+}
 
 /*
  * Panes layout
@@ -434,8 +464,8 @@ footer {
         }
         article .related-videos {
             position: absolute;
-            top: 30%;
-            bottom: 30%;
+            top: 5em;
+            bottom: 5em;
             left: 15%;
             right: 15%;
             color: #FFF;
@@ -446,11 +476,29 @@ footer {
             box-shadow: 0 0 1em rgba(0,0,0,.6);
             cursor: auto;
         }
-
+            article .related-videos .misc a {
+                display: inline-block;
+                line-height: 2.5em;
+            }
+            article .related-videos .replay {
+                padding-left: 2.5em;
+                background: url('../img/sprite.png') no-repeat -72px -103px;
+            }
+            article .related-videos .next {
+                padding-right: 2.5em;
+                background: url('../img/sprite.png') no-repeat -62px -72px;
+            }
 /*
  * Panes decoration
  */
-/* @todo */
+article .video-poster {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('../assets/photos/test1.jpg') no-repeat;
+}
 
 
 /*
@@ -471,49 +519,65 @@ article video {
 .additional-content-wrapper {
     text-align: center;
 }
-.additional-content-wrapper h2::after {
-    content: ' ';
-    display: block;
-    width: 100%;
-    height: 1em;
-    margin: .625em 0 1.25em;
-    background: url('../img/sprite.png') no-repeat 50% -60px;
-}
-@-moz-keyframes additionnal-content-loading {
-    0%   { opacity: 1; }
-    50%  { opacity: 0; }
-    100% { opacity: 1; }
-}
-@-webkit-keyframes additionnal-content-loading {
-    0%   { opacity: 1; }
-    50%  { opacity: 0; }
-    100% { opacity: 1; }
-}
-@-o-keyframes additionnal-content-loading {
-    0%   { opacity: 1; }
-    50%  { opacity: 0; }
-    100% { opacity: 1; }
-}
-@keyframes additionnal-content-loading {
-    0%   { opacity: 1; }
-    50%  { opacity: 0; }
-    100% { opacity: 1; }
-}
-.additional-content-wrapper.loading > div {
-    height: 2.5em;
-    margin: 10em auto 2.5em;
-    background: url('../img/sprite.png') no-repeat 50% -60px;
+    .additional-content-wrapper.loading > div {
+        height: 2em;
+        margin: 10em auto 3em;
+        background: url('../img/sprite.png') no-repeat 50% -40px;
    -moz-animation: additionnal-content-loading 3s ease infinite;
 -webkit-animation: additionnal-content-loading 3s ease infinite;
      -o-animation: additionnal-content-loading 3s ease infinite;
         animation: additionnal-content-loading 3s ease infinite;
-}
-.additional-content-wrapper img {
-   -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
--webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
-        box-shadow: 0 0 1em rgba(0,0,0,.6);
-}
-
+    }
+        .additional-content-wrapper h2::after {
+            content: ' ';
+            display: block;
+            width: 100%;
+            height: 1em;
+            margin: .625em 0 1.25em;
+            background: url('../img/sprite.png') no-repeat 50% -40px;
+        }
+        @-moz-keyframes additionnal-content-loading {
+            0%   { opacity: 1; }
+            50%  { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @-webkit-keyframes additionnal-content-loading {
+            0%   { opacity: 1; }
+            50%  { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @-o-keyframes additionnal-content-loading {
+            0%   { opacity: 1; }
+            50%  { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes additionnal-content-loading {
+            0%   { opacity: 1; }
+            50%  { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .additional-content-wrapper img {
+       -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
+    -webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
+            box-shadow: 0 0 1em rgba(0,0,0,.6);
+        }
+    /* #top backlink */
+    .additional-content-wrapper > nav > a {
+        display: inline-block;
+        margin-top: 2.5em;
+        padding-top: 2.5em;
+        font-size: 1.25em;
+        line-height: 1;
+        background: url('../img/sprite.png') no-repeat 10px -91px;
+   -moz-transition: all .1s;
+-webkit-transition: all .1s;
+     -o-transition: all .1s;
+        transition: all .1s;
+    }
+    .additional-content-wrapper > nav > a:hover {
+        margin-top: 2em;
+        padding-top: 3em;
+    }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),

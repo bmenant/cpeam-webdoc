@@ -36,15 +36,31 @@
                 <!-- Columns elements for table-layout -->
                 <div id="video-col-1"  class="column"></div><div id="video-col-2" class="column"></div><div id="video-col-3" class="column"></div><div id="video-col-4" class="column"></div><div id="video-col-5" class="column"></div>
 
-                <article id="video-cell-1">
+                <article id="video-cell-1" aria-live="polite">
                     <div>
                         <video poster="assets/photos/test1.jpg">
                             <source src="assets/videos/sintel-trailer-360p.ogv">
                             <source src="assets/videos/sintel-trailer-360p.mp4">
                         </video>
                         <div class="related-videos hidden">
-                            Ici, des liens vers les autres vidéos…
+                            <div class="misc">
+                                <a href="#video-cell-1" class="replay" title="Revisionner ce film">rejouer</a>
+                                <a href="#video-cell-2" class="next" title="Visionner le film suivant">suivant</a>
+                            </div>
+                            <div>
+                                <a href="#video-cell-3" title="">Danse</a>
+                                <a href="#video-cell-4" title="">Boxe</a>
+                            </div>
                         </div>
+                        <div class="video-sequence-menu hidden">
+                            <ol>
+                                <li><a href="#video-1-seq-1">début</a></li>
+                                <li><a href="#video-1-seq-2">milieu</a></li>
+                                <li><a href="#video-1-seq-3">oublié</a></li>
+                                <li><a href="#video-1-seq-4">fin</a></li>
+                            </ol>
+                        </div>
+                        <div class="video-poster">&nbsp;</div>
                     </div>
                 </article>
 
@@ -98,7 +114,10 @@
             </section>
 
             <!-- Additional content -->
-            <section aria-live="polite" id="additional-content-wrapper" class="additional-content-wrapper hidden"><div>…</div></section>
+            <section aria-live="polite" id="additional-content-wrapper" class="additional-content-wrapper hidden">
+                <div></div>
+                <nav><a href="#top" title="Revenir au début de la page">haut</a></nav>
+            </section>
 
             <div class="footer-pusher invisible"></div>
         </div>
@@ -108,10 +127,10 @@
                 <nav>
                     <h3>Voir, revoir</h3>
                     <ul>
-                        <li><a>Film</a></li>
-                        <li><a>Bonus</a></li>
-                        <li><a>Crédits</a></li>
-                        <li><a>Contact</a></li>
+                        <li><a href="#top">Film</a></li>
+                        <li><a href="#bonus">Bonus</a></li>
+                        <li><a href="#credits">Crédits</a></li>
+                        <li><a href="mailto:cpeam-webdoc@menant-benjamin.fr">Contact</a></li>
                     </ul>
                 </nav>
 

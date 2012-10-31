@@ -20,7 +20,7 @@
           .addClass('loading')
           .removeClass('hidden');
 
-    $hook.children()
+    $hook.children('div')
       .empty()
       .load(_path, function () {
         $hook.removeClass('loading');
@@ -91,22 +91,33 @@
    * Looks for each video element inside the given jQuery Object
    * and execute provided action.
    *
-   * @param {String} _action  Do we 'play' or 'stop' the video?
+   * @param {String}  _action Do we 'play' or 'stop' the video?
+   * @param {Integer} _time   Time to start from (0 by default).
    */
-  $.fn.videoControl = function (_action) {
-    var $video = $('video', this);
+  $.fn.videoControl = function (_action, _time) {
+    var $this   = this
+      , $poster = $('div.video-poster', $this)
+      , $video  = $('video', $this);
 
     $video.each(function() {
       var videoElt = this;
 
       switch (_action) {
         case 'play':
-          videoElt.currentTime = 0;
+          // Drop out the poster…
+          $poster.addClass('hidden');
+          // Play…
+          videoElt.currentTime = jQuery.isNumeric(_time) ? _time : 0;
           videoElt.play();
+          // Do not disturb!
           $.fn.secondaryElementsController('hide');
           break;
         case 'stop':
+          // Please, disturb…
           $.fn.secondaryElementsController('show');
+          // Get back the poster…
+          $poster.removeClass('hidden');
+          // Stop playing!
           videoElt.pause();
           break;
         default:
