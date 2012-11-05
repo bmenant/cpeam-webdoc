@@ -190,6 +190,7 @@
   /**
    * MAIN MENU CONTROLLER
    *
+   * @todo Cast subsection and load corresponding section
    */
   $(function() {
     var
