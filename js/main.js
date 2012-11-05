@@ -39,7 +39,6 @@
     var _hide_again
         // jQuery objects
       , $body = $('body')
-      , $videoWrapper = $('#video-wrapper')
       , $secondaryElements = $('header, footer, #additional-content-wrapper')
         // Helpers
       , hide = function () { $secondaryElements.addClass('opacity-zero'); }
@@ -48,8 +47,8 @@
       , mousemove_body_handler = function (evt) {
           // Mouse moves somewhere else than the videos?
           // Ok, show all!
-          if (!$videoWrapper.is(evt.target)
-          &&  !jQuery.contains($videoWrapper[0], evt.target)) {
+          if (!$video_wrapper.is(evt.target)
+          &&  !jQuery.contains($video_wrapper[0], evt.target)) {
             window.clearTimeout(_hide_again);
             show();
             _hide_again = window.setTimeout(hide, 1000);
@@ -58,8 +57,8 @@
       , click_body_handler = function (evt) {
           // Clicks somewhere else than the videos?
           // Ok, show all and stop the hidder stuff!
-          if (!$videoWrapper.is(evt.target)
-          &&  !jQuery.contains($videoWrapper[0], evt.target)) {
+          if (!$video_wrapper.is(evt.target)
+          &&  !jQuery.contains($video_wrapper[0], evt.target)) {
             window.clearTimeout(_hide_again);
             $body
               .off('mousemove', mousemove_body_handler)
@@ -138,7 +137,7 @@
     var
       // Event handlers
       cols_click_handler = function (evt) {
-        evt.preventDefault();
+        //evt.preventDefault();
 
         var _id = this.id.charAt(this.id.length - 1)
           , $col = $('#video-col-' + _id, $video_wrapper)
@@ -171,17 +170,21 @@
    *
    */
   $(function () {
-    var
-      // Event handlers
-      videos_end_handler = function (evt) {
-        var $target = $(evt.target)
-          , $related_videos = $target.next('div.related-videos')
-              .removeClass('hidden');
-      };
+    var videos_end_handler = function (evt) {
+          var $target = $(evt.target)
+            , $related_videos = $target.next('div.related-videos')
+                .removeClass('hidden');
+        }
+      , videos_play_handler = function (evt) {
+          var $target = $(evt.target)
+            , $related_videos = $target.next('div.related-videos')
+                .addClass('hidden');
+        };
 
-      // DOM elements & Event listeners
-      $('video', $video_wrapper).on('ended', videos_end_handler);
-
+    // DOM elements & Event listeners
+    $('video', $video_wrapper)
+      .on('ended', videos_end_handler)
+      .on('play', videos_play_handler);
   });
 
   /**
@@ -195,14 +198,19 @@
         switch (_hash) {
 
           // Load bonus content
+          case 'contres-pieds':
           case 'bonus':
           case 'credits':
             $.fn.additionalContentLoader(_hash);
             return;
 
-          // Play all videos from the start
+          // Stop & reset the video panes
           case 'top':
           default:
+            $('article', $video_wrapper).videoControl('stop');
+            $('div.column', $video_wrapper).removeClass('closed-column opened-column');
+            // It could also start the first video…
+            // $('#video-cell-1').trigger('click');
             return;
         }
       },
@@ -214,7 +222,7 @@
       },
 
       // Menu & Event Listener
-      $menu = $('#primary-menu')
+      $menu = $('#primary-menu, footer nav')
         .on('click', 'a', menu_click_handler);
 
     // Autoload content from URL hash

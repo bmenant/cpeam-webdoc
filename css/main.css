@@ -287,10 +287,10 @@ footer,
 }
 .opacity-zero {
     opacity: 0;
-   -moz-transition: opacity 4s ease-in 3s !important;
--webkit-transition: opacity 4s ease-in 3s !important;
-     -o-transition: opacity 4s ease-in 3s !important;
-        transition: opacity 4s ease-in 3s !important;
+   -moz-transition: opacity 4s ease 10s !important;
+-webkit-transition: opacity 4s ease 10s !important;
+     -o-transition: opacity 4s ease 10s !important;
+        transition: opacity 4s ease 10s !important;
 }
 
 /*
@@ -362,6 +362,7 @@ header {
 /*
  * Footer
  */
+
 .footer-pusher {
     height: 20em;
 }
@@ -488,9 +489,11 @@ footer a:focus,
                 padding-right: 2.5em;
                 background: url('../img/sprite.png') no-repeat -62px -72px;
             }
+
 /*
  * Panes decoration
  */
+
 article .video-poster {
     position: absolute;
     top: 0;
