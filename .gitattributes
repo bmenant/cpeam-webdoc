@@ -1,1 +1,7 @@
 * text=auto
+.gitattributes
+.gitignore
+img/sources
+LICENSE.md
+README.md
+doc
