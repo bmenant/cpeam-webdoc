@@ -196,9 +196,6 @@
                 .addClass('hidden');
         }
       , related_links_click_handler = function (evt) {
-          evt.preventDefault();
-          evt.stopPropagation();
-
           window.clearTimeout(autostart_next_video);
 
           var _hash = evt.currentTarget.hash
@@ -210,10 +207,11 @@
               $(_hash).trigger('click');
               break;
             case 'expert':
-              // @todo
-              console.log(evt);
-              break;
+              $.fn.additionalContentLoader('experts');
+              return;
           }
+          evt.preventDefault();
+          evt.stopPropagation();
         };
 
     $('video', $video_wrapper)
@@ -236,7 +234,7 @@
         switch (_hash) {
 
           // Load bonus content
-          case 'contres-pieds':
+          case 'experts':
           case 'bonus':
           case 'credits':
             $.fn.additionalContentLoader(_hash);

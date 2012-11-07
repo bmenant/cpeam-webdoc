@@ -481,10 +481,10 @@ a:focus {
             background-repeat: no-repeat;
         }
         article .related-videos:not(.hidden) {
-       -moz-animation: relatedVideos 7s step-end 1;
-    -webkit-animation: relatedVideos 7s step-end 1;
-         -o-animation: relatedVideos 7s step-end 1;
-            animation: relatedVideos 7s step-end 1;
+       -moz-animation: relatedVideos 8s step-end 1;
+    -webkit-animation: relatedVideos 8s step-end 1;
+         -o-animation: relatedVideos 8s step-end 1;
+            animation: relatedVideos 8s step-end 1;
         }
         @-moz-keyframes relatedVideos {
             from { background-position: 30% 107%, -100% -100%, -100% -100%, -100% -100%, -100% -100%, -100% -100%; }
