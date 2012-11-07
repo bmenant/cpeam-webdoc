@@ -403,26 +403,18 @@ footer {
  * Links
  */
 
-header a:link,
-footer a:link,
-.additional-content-wrapper > nav a:link,
-.additional-content-wrapper > nav a:visited {
+a:link,
+a:link {
     color: #222;
     text-decoration: none;
 }
-header a:visited,
-footer a:visited {
+a:visited,
+a:visited {
     color: #444;
 }
-header a:hover,
-header a:active,
-header a:focus,
-footer a:hover,
-footer a:active,
-footer a:focus,
-.additional-content-wrapper > nav  a:hover,
-.additional-content-wrapper > nav  a:active,
-.additional-content-wrapper > nav  a:focus {
+a:hover,
+a:active,
+a:focus {
     color: #000;
     text-decoration: underline;
 }
@@ -465,39 +457,110 @@ footer a:focus,
         }
         article .related-videos {
             position: absolute;
-            top: 6.25em;
-            bottom: 6.25em;
-            left: 2.5em;
-            right: 2.5em;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
             color: #FFF;
+            cursor: auto;
+            background-image:
+                url('../img/pas-d.png'),
+                url('../img/pas-g.png'),
+                url('../img/pas-d.png'),
+                url('../img/pas-g.png'),
+                url('../img/pas-d.png'),
+                url('../img/pas-g.png');
+            background-position:
+                30% 107%,
+                45% 95%,
+                61% 96%,
+                74% 82%,
+                89% 87%,
+                103% 71%;
+            background-repeat: no-repeat;
+        }
+        article .related-videos:not(.hidden) {
+       -moz-animation: relatedVideos 7s step-end 1;
+    -webkit-animation: relatedVideos 7s step-end 1;
+         -o-animation: relatedVideos 7s step-end 1;
+            animation: relatedVideos 7s step-end 1;
+        }
+        @-moz-keyframes relatedVideos {
+            from { background-position: 30% 107%, -100% -100%, -100% -100%, -100% -100%, -100% -100%, -100% -100%; }
+            20% { background-position: 30% 107%, 45% 95%, -100% -100%, -100% -100%, -100% -100%, -100% -100%; }
+            40% { background-position: 30% 107%, 45% 95%, 61% 96%, -100% -100%, -100% -100%, -100% -100%; }
+            60% { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, -100% -100%, -100% -100%; }
+            80% { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, 89% 87%, -100% -100%; }
+            to { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, 89% 87%, 103% 71%; }
+        }
+        @-webkit-keyframes relatedVideos {
+            from { background-position: 30% 107%, -100% -100%, -100% -100%, -100% -100%, -100% -100%, -100% -100%; }
+            20% { background-position: 30% 107%, 45% 95%, -100% -100%, -100% -100%, -100% -100%, -100% -100%; }
+            40% { background-position: 30% 107%, 45% 95%, 61% 96%, -100% -100%, -100% -100%, -100% -100%; }
+            60% { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, -100% -100%, -100% -100%; }
+            80% { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, 89% 87%, -100% -100%; }
+            to { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, 89% 87%, 103% 71%; }
+        }
+        @-o-keyframes relatedVideos {
+            from { background-position: 30% 107%, -100% -100%, -100% -100%, -100% -100%, -100% -100%, -100% -100%; }
+            20% { background-position: 30% 107%, 45% 95%, -100% -100%, -100% -100%, -100% -100%, -100% -100%; }
+            40% { background-position: 30% 107%, 45% 95%, 61% 96%, -100% -100%, -100% -100%, -100% -100%; }
+            60% { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, -100% -100%, -100% -100%; }
+            80% { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, 89% 87%, -100% -100%; }
+            to { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, 89% 87%, 103% 71%; }
+        }
+        @keyframes relatedVideos {
+            from { background-position: 30% 107%, -100% -100%, -100% -100%, -100% -100%, -100% -100%, -100% -100%; }
+            20% { background-position: 30% 107%, 45% 95%, -100% -100%, -100% -100%, -100% -100%, -100% -100%; }
+            40% { background-position: 30% 107%, 45% 95%, 61% 96%, -100% -100%, -100% -100%, -100% -100%; }
+            60% { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, -100% -100%, -100% -100%; }
+            80% { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, 89% 87%, -100% -100%; }
+            to { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, 89% 87%, 103% 71%; }
         }
             article .related-videos a {
                 position: absolute;
                 top: 0;
-                bottom: 0;
-                display: block;
-                padding: 2.5em;
-                background: #555;
-                background: rgba(0,0,0,.6);
-           -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
-        -webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
-                box-shadow: 0 0 1em rgba(0,0,0,.6);
+                left: 12em;
+                right: 12em;
+                padding: 2em 1em 0;
+                font-size: 1.25em;
+                line-height: 2;
+                color: #222;
+                background-color: #EEE;
+                background-color: rgba(255,255,255,.9);
+           -moz-box-shadow: 0 0 1em rgba(255,255,255,.8);
+        -webkit-box-shadow: 0 0 1em rgba(255,255,255,.8);
+                box-shadow: 0 0 1em rgba(255,255,255,.8);
+           -moz-transition: padding .1s;
+        -webkit-transition: padding .1s;
+             -o-transition: padding .1s;
+            -ms-transition: padding .1s;
+                transition: padding .1s;
             }
             article .related-videos a:hover {
-                background: rgba(0,0,0,.9);
+                background-color: rgba(255,255,255,1);
+                padding-top: 3em;
+            }
+            article .related-videos a:first-child {
+                left: 2em;
+                right: 22em;
+            }
+            article .related-videos a:last-child {
+                left: 22em;
+                right: 2em;
             }
             article .related-videos .replay {
-                left: 0;
-                right: 25em;
-                /*background: url('../img/sprite.png') no-repeat -72px -103px;*/
+                padding-top: 0;
             }
-            article .related-videos .another-sport {
-                left: 12.5em;
-                right: 12.5em;
-            }
-            article .related-videos .reference {
-                left: 25em;
-                right: 0;
+            article .replay span:before {
+                content: ' ';
+                display: inline-block;
+                width: 1.25em;
+                height: 1.25em;
+                margin: 0 .4em 0 -.2em;
+                vertical-align: text-bottom;
+                background: url('../img/sprite.png') no-repeat -50px -72px;
             }
 
 /*
@@ -581,7 +644,7 @@ article video {
         padding-top: 2.5em;
         font-size: 1.25em;
         line-height: 1;
-        background: url('../img/sprite.png') no-repeat 10px -91px;
+        background: url('../img/sprite.png') no-repeat -76px -72px;
    -moz-transition: all .1s;
 -webkit-transition: all .1s;
      -o-transition: all .1s;

@@ -11,6 +11,7 @@
 
   /**
    * ADDITIONAL CONTENT LOADER
+   * Load additional content (experts, bonus, credits, etc).
    *
    * @param {String} _contentName  The name of the file to request.
    */
@@ -31,7 +32,7 @@
   /**
    * SECONDARY ELEMENTS CONTROLLER
    * Hide useless elements when a video is playing.
-   * Keeps a look at user action to display back these elements.
+   * Keep a look at user action to display back these elements.
    *
    * @param {String} _action Hide or show elements?
    */
@@ -87,7 +88,7 @@
 
   /**
    * VIDEO CONTROLLER
-   * Looks for each video element inside the given jQuery Object
+   * Look for each video element inside the given jQuery Object
    * and execute provided action.
    *
    * @param {String}  _action Do we 'play' or 'stop' the video?
@@ -131,6 +132,7 @@
 
   /**
    * VIDEO MENU
+   * Five videos, five sliding panes. Click to open and play.
    *
    */
   $(function() {
@@ -166,25 +168,60 @@
 
   /**
    * INNER VIDEO MENU
-   * Proposes two videos at the end of the video
+   * Propose two videos at the end of the video, a replay button,
+   * and a countdown timer before the next video starts.
    *
    */
   $(function () {
-    var videos_end_handler = function (evt) {
+    var related_videos_selector = 'div.related-videos'
+      , autostart_next_video
+      , videos_end_handler = function (evt) {
           var $target = $(evt.target)
-            , $related_videos = $target.next('div.related-videos')
+            , $related_videos = $target.next(related_videos_selector)
                 .removeClass('hidden');
+
+          autostart_next_video = window.setTimeout(function () {
+            var $next = $target.parents('article').next();
+            if ($next.length > 0) {
+              $next.trigger('click');
+            }
+            else {
+              $('#video-1').trigger('click');
+            }
+          }, 7000);
         }
       , videos_play_handler = function (evt) {
           var $target = $(evt.target)
-            , $related_videos = $target.next('div.related-videos')
+            , $related_videos = $target.next(related_videos_selector)
                 .addClass('hidden');
+        }
+      , related_links_click_handler = function (evt) {
+          evt.preventDefault();
+          evt.stopPropagation();
+
+          window.clearTimeout(autostart_next_video);
+
+          var _hash = evt.currentTarget.hash
+            , _class = evt.currentTarget.className;
+          switch (_class) {
+            case 'replay':
+              $(_hash).videoControl('play');
+            case 'another':
+              $(_hash).trigger('click');
+              break;
+            case 'expert':
+              // @todo
+              console.log(evt);
+              break;
+          }
         };
 
-    // DOM elements & Event listeners
     $('video', $video_wrapper)
       .on('ended', videos_end_handler)
       .on('play', videos_play_handler);
+
+    $video_wrapper.on('click', related_videos_selector + ' a', related_links_click_handler);
+
   });
 
   /**
@@ -211,7 +248,7 @@
             $('article', $video_wrapper).videoControl('stop');
             $('div.column', $video_wrapper).removeClass('closed-column opened-column');
             // It could also start the first video…
-            // $('#video-cell-1').trigger('click');
+            // $('#video-1').trigger('click');
             return;
         }
       },
