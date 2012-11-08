@@ -35,7 +35,7 @@
    * Keep a look at user action to display back these elements.
    *
    * @param {String} _action Hide or show elements?
-   */
+   *//*
   $.fn.secondaryElementsController = function (_action) {
     var _hide_again
         // jQuery objects
@@ -84,6 +84,63 @@
         show();
         return;
     }
+  }*/
+
+  /**
+   * VIDEO CONTROLS DISPLAY
+   * Hide timeline on user idle.
+   * Keep a look at user action to display back the controls.
+   *
+   * @param {String} _action Hide or show elements?
+   */
+  $.fn.videoControlsDisplay = function (_action) {
+    var _hide_again = 0
+      , $this = this
+      , $controls = $('div.video-controls', $this)
+        // Helpers
+      , hide = function () {
+          $controls.addClass('opacity-zero');
+          $this.addClass('no-cursor');
+        }
+      , show = function () {
+          $controls.removeClass('opacity-zero');
+          $this.removeClass('no-cursor');
+        }
+        // Event handlers
+      , mousemove_video_handler = function (evt) {
+          // show controls
+          window.clearTimeout(_hide_again);
+          show();
+          _hide_again = window.setTimeout(hide, 2000);
+        }
+      , mouseenter_controls_handler = function (evt) {
+          $this.off('mousemove', mousemove_video_handler);
+          window.clearTimeout(_hide_again);
+          show();
+        }
+      , mouseleave_controls_handler = function (evt) {
+          window.clearTimeout(_hide_again);
+          _hide_again = window.setTimeout(hide, 2000);
+          $this.on('mousemove', mousemove_video_handler);
+        };
+    switch (_action) {
+      case 'hide':
+        hide();
+        $this.on('mousemove', mousemove_video_handler);
+        $controls
+          .on('mouseleave focusout', mouseleave_controls_handler)
+          .on('mouseenter focusin', mouseenter_controls_handler);
+        return;
+      case 'show':
+      default:
+        if (jQuery.isNumeric(_hide_again)) window.clearTimeout(_hide_again);
+        $this.off('mousemove', mousemove_video_handler);
+        $controls
+          .off('mouseleave focusout', mouseleave_controls_handler)
+          .off('mouseenter focusin', mouseenter_controls_handler);
+        show();
+        return;
+    }
   }
 
   /**
@@ -110,11 +167,12 @@
           videoElt.currentTime = jQuery.isNumeric(_time) ? _time : 0;
           videoElt.play();
           // Do not disturb!
-          $.fn.secondaryElementsController('hide');
+          //$.fn.secondaryElementsController('hide');
+          $this.videoControlsDisplay('hide');
           break;
         case 'stop':
           // Please, disturb…
-          $.fn.secondaryElementsController('show');
+          //$.fn.secondaryElementsController('show');
           // Get back the poster…
           $poster.removeClass('hidden');
           // Stop playing!
@@ -188,7 +246,7 @@
             else {
               $('#video-1').trigger('click');
             }
-          }, 7000);
+          }, 9000);
         }
       , videos_play_handler = function (evt) {
           var $target = $(evt.target)

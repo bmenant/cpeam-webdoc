@@ -276,6 +276,7 @@ footer > div {
 }
 
 /* Secondary elements to hide when a video is playing. */
+/*
 header,
 footer,
 .additional-content-wrapper {
@@ -291,7 +292,7 @@ footer,
 -webkit-transition: opacity 4s ease 10s !important;
      -o-transition: opacity 4s ease 10s !important;
         transition: opacity 4s ease 10s !important;
-}
+}*/
 
 /*
  * Header
@@ -326,11 +327,12 @@ header {
         font-size: 1.25em;
         line-height: 1.6em;
     }
-    header li {
+    header li,
+    .video-controls li {
         display: inline;
     }
     header li::before,
-    header li:last-of-type::after {
+    header li:last-of-type::after  {
         content: ' ';
         display: inline-block;
         margin: 0 7px 0 0;
@@ -428,6 +430,7 @@ a:focus {
     table-layout: fixed;
     border-collapse: collapse;
     margin-bottom: 5em;
+    background-color: #000;
    -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
 -webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
         box-shadow: 0 0 1em rgba(0,0,0,.6);
@@ -452,10 +455,15 @@ a:focus {
         overflow: hidden;
         cursor: pointer;
     }
+    article.no-cursor {
+        cursor: none;
+    }
         article > div {
             position: relative;
         }
-        article .related-videos {
+
+        /* Block displayed at the end */
+        .related-videos {
             position: absolute;
             top: 0;
             bottom: 0;
@@ -480,7 +488,7 @@ a:focus {
                 103% 71%;
             background-repeat: no-repeat;
         }
-        article .related-videos:not(.hidden) {
+        .related-videos:not(.hidden) {
        -moz-animation: relatedVideos 8s step-end 1;
     -webkit-animation: relatedVideos 8s step-end 1;
          -o-animation: relatedVideos 8s step-end 1;
@@ -518,7 +526,7 @@ a:focus {
             80% { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, 89% 87%, -100% -100%; }
             to { background-position: 30% 107%, 45% 95%, 61% 96%, 74% 82%, 89% 87%, 103% 71%; }
         }
-            article .related-videos a {
+            .related-videos a {
                 position: absolute;
                 top: 0;
                 left: 12em;
@@ -538,22 +546,22 @@ a:focus {
             -ms-transition: padding .1s;
                 transition: padding .1s;
             }
-            article .related-videos a:hover {
+            .related-videos a:hover {
                 background-color: rgba(255,255,255,1);
                 padding-top: 3em;
             }
-            article .related-videos a:first-child {
+            .related-videos a:first-child {
                 left: 2em;
                 right: 22em;
             }
-            article .related-videos a:last-child {
+            .related-videos a:last-child {
                 left: 22em;
                 right: 2em;
             }
-            article .related-videos .replay {
+            .related-videos .replay {
                 padding-top: 0;
             }
-            article .replay span:before {
+            .replay span:before {
                 content: ' ';
                 display: inline-block;
                 width: 1.25em;
@@ -563,17 +571,119 @@ a:focus {
                 background: url('../img/sprite.png') no-repeat -50px -72px;
             }
 
+        /* video controls */
+        .video-controls {
+            position: absolute;
+            bottom: 2.5em;
+            left: 0;
+            right: 0;
+            cursor: auto;
+            opacity: 1;
+            background-color: #EEE;
+            background-color: rgba(255,255,255,.9);
+       -moz-box-shadow: 0 0 0.8em 0.2em rgba(255, 255, 255, 0.9);
+    -webkit-box-shadow: 0 0 0.8em 0.2em rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 0.8em 0.2em rgba(255, 255, 255, 0.9);
+       -moz-transition: opacity .2s;
+    -webkit-transition: opacity .2s;
+         -o-transition: opacity .2s;
+            transition: opacity .2s;
+        }
+        .video-controls.opacity-zero {
+            opacity: 0;
+       -moz-transition: opacity .4s !important;
+    -webkit-transition: opacity .4s !important;
+         -o-transition: opacity .4s !important;
+            transition: opacity .4s !important;
+        }
+        .video-controls div a {
+            position: absolute;
+            bottom: 5em;
+            left: -7.5em;
+            display: block;
+            width: 10em;
+            line-height: 2.5;
+            text-align: right;
+            background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+       -moz-transition: left .2s;
+    -webkit-transition: left .2s;
+         -o-transition: left .2s;
+            transition: left .2s;
+        }
+        .video-controls .fullscreen {
+            bottom: 10em;
+        }
+        .video-controls div a:hover,
+        .video-controls div a:focus,
+        .video-controls div a:active {
+            left: 0;
+        }
+        .video-controls div a::after {
+            content: " ";
+            display: inline-block;
+            height: 1.25em;
+            width: 1em;
+            margin-left: 0.75em;
+            margin-right: 0.75em;
+            vertical-align: middle;
+            background: url("../img/sprite.png") no-repeat -2px -100px;
+        }
+        .video-controls .fullscreen::after {
+            margin-left: 0.5em;
+            margin-right: 0.5em;
+            width: 1.5em;
+            background-position: -33px -100px;
+        }
+        .video-controls .pause::after {
+            background-position: -2px -100px;
+        }
+        .video-controls .play::after {
+            background-position: -18px -100px;
+        }
+        .video-controls ol {
+            padding: 0;
+            list-style: none;
+            font-size: 1em;
+            line-height: 2.5em;
+            text-align: center;
+        }
+        .video-controls li::before,
+        .video-controls li:last-of-type::after {
+            content: ' ';
+            display: inline-block;
+            margin: 0 7px 0 0;
+            width: 18px;
+            height: 10px;
+            vertical-align: baseline;
+            background: url('../img/sprite.png') -34px -72px no-repeat;
+        }
+        .video-controls li:last-of-type::after {
+            margin: 0 0 0 7px;
+        }
+
 /*
  * Panes decoration
  */
 
-article .video-poster {
+.video-poster {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background: url('../assets/photos/test1.jpg') no-repeat;
+}
+#video-2 .video-poster {
+    background-image: url('../assets/photos/test2.jpg');
+}
+#video-3 .video-poster {
+    background-image: url('../assets/photos/test3.jpg');
+}
+#video-4 .video-poster {
+    background-image: url('../assets/photos/test4.jpg');
+}
+#video-5 .video-poster {
+    background-image: url('../assets/photos/test5.jpg');
 }
 
 
@@ -632,7 +742,8 @@ article video {
             50%  { opacity: 0; }
             100% { opacity: 1; }
         }
-        .additional-content-wrapper img {
+        .additional-content-wrapper img,
+        .additional-content-wrapper video {
        -moz-box-shadow: 0 0 1em rgba(0,0,0,.6);
     -webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
             box-shadow: 0 0 1em rgba(0,0,0,.6);
