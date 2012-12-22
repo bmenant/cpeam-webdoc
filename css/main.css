@@ -605,6 +605,9 @@ a:focus {
             line-height: 2.5;
             text-align: right;
             background: none repeat scroll 0 0 rgba(255, 255, 255, 0.9);
+       -moz-box-shadow: 0 0 0.8em 0.2em rgba(255, 255, 255, 0.9);
+    -webkit-box-shadow: 0 0 0.8em 0.2em rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 0.8em 0.2em rgba(255, 255, 255, 0.9);
        -moz-transition: left .2s;
     -webkit-transition: left .2s;
          -o-transition: left .2s;
@@ -696,7 +699,8 @@ article video {
     width: 40em; /* 640px */
     height: 22.5em; /* 360px */
 }
-
+article video:-webkit-full-screen { max-height: 100%; }
+article video:-moz-full-screen { max-height: 100%; }
 
 /*
  * Additional content

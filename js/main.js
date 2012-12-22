@@ -1,6 +1,6 @@
 /**
  * jQuery controllers and helpers for a university project of a webdoc.
- * Last edit: October 2012
+ * Last edit: December 2012
  *
  * @author Benjamin Menant <dev@menant-benjamin.fr>
  */
@@ -169,6 +169,7 @@
           // Do not disturb!
           //$.fn.secondaryElementsController('hide');
           $this.videoControlsDisplay('hide');
+          $this.videoControlsMenu(true);
           break;
         case 'stop':
           // Please, disturb…
@@ -177,6 +178,25 @@
           $poster.removeClass('hidden');
           // Stop playing!
           videoElt.pause();
+          $this.videoControlsMenu(false);
+          break;
+        case 'requestFullscreen':
+          if (videoElt.requestFullscreen) {
+            videoElt.requestFullscreen();
+          } else if (videoElt.mozRequestFullScreen) {
+            videoElt.mozRequestFullScreen();
+          } else if (videoElt.webkitRequestFullscreen) {
+            videoElt.webkitRequestFullscreen();
+          }
+          break;
+        case 'cancelFullscreen':
+          if (document.cancelFullscreen) {
+            document.cancelFullscreen();
+          } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+          } else if (document.webkitCancelFullscreen) {
+            document.webkitCancelFullscreen();
+          }
           break;
         default:
           console.log('VideoController, action unknown: ' + _action );
@@ -279,6 +299,29 @@
     $video_wrapper.on('click', related_videos_selector + ' a', related_links_click_handler);
 
   });
+
+  /**
+   * INNER VIDEO CONTROLS MENU
+   * Fullscreen, play/pause button
+   *
+   * @param {Boolean} Set or unset eventlistener
+   */
+$.fn.videoControlsMenu = function (_action) {
+  var   $this = this
+      , $controls = $('div.video-controls', $this)
+        // Helpers
+        // Event handlers
+      , click_fullscreen_handler = function () {
+          $this.videoControl('requestFullscreen');
+        }
+      , click_playpause_handler = function () {
+      };
+  if (_action) {
+    $controls.on('click', click_fullscreen_handler);
+  } else {
+    $controls.off('click', click_fullscreen_handler);
+  }
+}
 
   /**
    * MAIN MENU CONTROLLER
