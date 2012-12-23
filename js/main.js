@@ -84,7 +84,7 @@
         show();
         return;
     }
-  }*/
+  };*/
 
   /**
    * VIDEO CONTROLS DISPLAY
@@ -141,35 +141,51 @@
         show();
         return;
     }
-  }
-
+  };
+  
   /**
    * VIDEO CONTROLLER
    * Look for each video element inside the given jQuery Object
    * and execute provided action.
    *
-   * @param {String}  _action Do we 'play' or 'stop' the video?
-   * @param {Integer} _time   Time to start from (0 by default).
+   * @param {String}  _action     Do we 'play' or 'stop' the video?
+   * @param {Boolean} _start_from Start from actual position, or from given _position.
+   * @param {Integer} _time       Time to start from (0 by default).
    */
-  $.fn.videoControl = function (_action, _time) {
+  $.fn.videoControl = function (_action, _start_from, _time) {
     var $this   = this
       , $poster = $('div.video-poster', $this)
       , $video  = $('video', $this);
 
     $video.each(function() {
-      var videoElt = this;
+      var videoElt    = this
+        , _start_time = 0
+        , $article = $(videoElt).parentsUntil('#video-wrapper', 'article');
+
+      if (_start_from) {
+        _start_time = jQuery.isNumeric(_time)
+                    // Start from the given time
+                    ? _time
+                    // Start from the current time
+                    : videoElt.currentTime;
+      }
 
       switch (_action) {
         case 'play':
           // Drop out the poster…
           $poster.addClass('hidden');
           // Play…
-          videoElt.currentTime = jQuery.isNumeric(_time) ? _time : 0;
+          videoElt.currentTime = _start_time;
           videoElt.play();
           // Do not disturb!
           //$.fn.secondaryElementsController('hide');
           $this.videoControlsDisplay('hide');
-          $this.videoControlsMenu(true);
+          $article.videoControlsMenu(true);
+          break;
+        case 'replay':
+          // Play…
+          videoElt.currentTime = _start_time;
+          videoElt.play();
           break;
         case 'stop':
           // Please, disturb…
@@ -178,24 +194,36 @@
           $poster.removeClass('hidden');
           // Stop playing!
           videoElt.pause();
-          $this.videoControlsMenu(false);
+          $article.videoControlsMenu(false);
           break;
-        case 'requestFullscreen':
-          if (videoElt.requestFullscreen) {
-            videoElt.requestFullscreen();
-          } else if (videoElt.mozRequestFullScreen) {
-            videoElt.mozRequestFullScreen();
-          } else if (videoElt.webkitRequestFullscreen) {
-            videoElt.webkitRequestFullscreen();
+        case 'pause':
+          // Stop playing!
+          videoElt.pause();
+          break;
+        case 'exitFullscreen':
+
+          break;
+        case 'fullscreen':
+          // allready fullscreen, cancel it
+          if (document.fullscreen
+          ||  document.mozFullScreen
+          ||  document.webkitFullscreen) {
+            if (document.cancelFullscreen) {
+              document.cancelFullscreen();
+            } else if (document.mozCancelFullScreen) {
+              document.mozCancelFullScreen();
+            } else if (document.webkitCancelFullscreen) {
+              document.webkitCancelFullscreen();
+            }
+            break;
           }
-          break;
-        case 'cancelFullscreen':
-          if (document.cancelFullscreen) {
-            document.cancelFullscreen();
-          } else if (document.mozCancelFullScreen) {
-            document.mozCancelFullScreen();
-          } else if (document.webkitCancelFullscreen) {
-            document.webkitCancelFullscreen();
+          // else, request fullscreen
+          if ($article[0].requestFullscreen) {
+            $article[0].requestFullscreen();
+          } else if ($article[0].mozRequestFullScreen) {
+            $article[0].mozRequestFullScreen();
+          } else if ($article[0].webkitRequestFullscreen) {
+            $article[0].webkitRequestFullscreen();
           }
           break;
         default:
@@ -307,21 +335,54 @@
    * @param {Boolean} Set or unset eventlistener
    */
 $.fn.videoControlsMenu = function (_action) {
-  var   $this = this
-      , $controls = $('div.video-controls', $this)
-        // Helpers
-        // Event handlers
-      , click_fullscreen_handler = function () {
-          $this.videoControl('requestFullscreen');
+  var $this = this
+    , $controls = $('div.video-controls', $this)
+    , $playpause_button = $('a.play-pause', $controls)
+      // Helpers
+    , toggle_playpause_button = function (_playing) {
+        if (_playing === true) {
+          $playpause_button
+            .addClass('play')
+            .removeClass('pause')
+            .text('pause');
         }
-      , click_playpause_handler = function () {
+        else {
+          $playpause_button
+            .addClass('pause')
+            .removeClass('play')
+            .text('lecture');
+        }
+      }
+      // Event handlers
+    , click_fullscreen_handler = function (evt) {
+        $this.videoControl('fullscreen');
+        // @todo toggle button
+      }
+    , click_playpause_handler = function (evt) {
+        var _playing = $playpause_button.hasClass('pause');
+        if (_playing) {
+          $this.videoControl('replay', true);
+        }
+        else {
+          $this.videoControl('pause');
+        }
+        toggle_playpause_button(_playing);
+
+        evt.preventDefault();
+        evt.stopPropagation();
       };
+
   if (_action) {
-    $controls.on('click', click_fullscreen_handler);
-  } else {
-    $controls.off('click', click_fullscreen_handler);
+    toggle_playpause_button(true);
+    $controls
+      .on('click', 'a.play-pause', click_playpause_handler)
+      .on('click', 'a.fullscreen', click_fullscreen_handler);
   }
-}
+  else {
+    $controls.off();
+    toggle_playpause_button(false);
+  }
+};
 
   /**
    * MAIN MENU CONTROLLER
