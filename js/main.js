@@ -142,13 +142,15 @@
         return;
     }
   };
-  
+
   /**
    * VIDEO CONTROLLER
    * Look for each video element inside the given jQuery Object
    * and execute provided action.
    *
    * @param {String}  _action     Do we 'play' or 'stop' the video?
+   *                              'pause' or 'replay'?
+   *                              Toggle 'fullscreen'?
    * @param {Boolean} _start_from Start from actual position, or from given _position.
    * @param {Integer} _time       Time to start from (0 by default).
    */
@@ -180,7 +182,9 @@
           // Do not disturb!
           //$.fn.secondaryElementsController('hide');
           $this.videoControlsDisplay('hide');
-          $article.videoControlsMenu(true);
+          $article
+            .videoControlsMenu(true)
+            .videoControlsTimeline(true);
           break;
         case 'replay':
           // Play…
@@ -194,14 +198,13 @@
           $poster.removeClass('hidden');
           // Stop playing!
           videoElt.pause();
-          $article.videoControlsMenu(false);
+          $article
+            .videoControlsMenu(false)
+            .videoControlsTimeline(false);
           break;
         case 'pause':
           // Stop playing!
           videoElt.pause();
-          break;
-        case 'exitFullscreen':
-
           break;
         case 'fullscreen':
           // allready fullscreen, cancel it
@@ -334,6 +337,38 @@
    *
    * @param {Boolean} Set or unset eventlistener
    */
+$.fn.videoControlsTimeline = function (_action) {
+  var $this = this
+    , $controls = $('div.video-controls', $this)
+      // Helpers
+      // Event handlers
+    , click_timeline_handler = function (evt) {
+        var $target = $(evt.target)
+          , _time = $target.data('sequence-time');
+
+        $this.videoControl('replay', true, _time);
+
+        evt.preventDefault();
+        evt.stopPropagation();
+      };
+
+  // event listeners
+  if (_action) {
+    $controls.on('click', 'ol a', click_timeline_handler);
+  }
+  else {
+    $controls.off();
+  }
+
+  return $this;
+};
+
+  /**
+   * INNER VIDEO CONTROLS MENU
+   * Fullscreen, play/pause button
+   *
+   * @param {Boolean} Set or unset eventlistener
+   */
 $.fn.videoControlsMenu = function (_action) {
   var $this = this
     , $controls = $('div.video-controls', $this)
@@ -382,6 +417,8 @@ $.fn.videoControlsMenu = function (_action) {
     $controls.off();
     toggle_playpause_button(false);
   }
+
+  return $this;
 };
 
   /**
