@@ -183,13 +183,16 @@
           //$.fn.secondaryElementsController('hide');
           $this.videoControlsDisplay('hide');
           $article
-            .videoControlsMenu(true)
-            .videoControlsTimeline(true);
+            .videoControlsMenu('start')
+            .videoControlsTimeline('start');
           break;
         case 'replay':
           // Play…
           videoElt.currentTime = _start_time;
           videoElt.play();
+
+          // Force the control button to 'play'
+          $article.videoControlsMenu('reset');
           break;
         case 'stop':
           // Please, disturb…
@@ -199,8 +202,8 @@
           // Stop playing!
           videoElt.pause();
           $article
-            .videoControlsMenu(false)
-            .videoControlsTimeline(false);
+            .videoControlsMenu('stop')
+            .videoControlsTimeline('stop');
           break;
         case 'pause':
           // Stop playing!
@@ -311,7 +314,7 @@
             , _class = evt.currentTarget.className;
           switch (_class) {
             case 'replay':
-              $(_hash).videoControl('play');
+              $(_hash).videoControl('replay', true, 0);
             case 'another':
               $(_hash).trigger('click');
               break;
@@ -353,14 +356,16 @@ $.fn.videoControlsTimeline = function (_action) {
       };
 
   // event listeners
-  if (_action) {
-    $controls.on('click', 'ol a', click_timeline_handler);
-  }
-  else {
-    $controls.off();
-  }
+  switch (_action) {
+    case 'start':
+      $controls.on('click', 'ol a', click_timeline_handler);
+      return $this;
 
-  return $this;
+    case 'stop':
+    default:
+      $controls.off();
+      return $this;
+  }
 };
 
   /**
@@ -407,18 +412,24 @@ $.fn.videoControlsMenu = function (_action) {
         evt.stopPropagation();
       };
 
-  if (_action) {
-    toggle_playpause_button(true);
-    $controls
-      .on('click', 'a.play-pause', click_playpause_handler)
-      .on('click', 'a.fullscreen', click_fullscreen_handler);
-  }
-  else {
-    $controls.off();
-    toggle_playpause_button(false);
-  }
+  switch(_action) {
+    case 'start':
+      toggle_playpause_button(true);
+      $controls
+        .on('click', 'a.play-pause', click_playpause_handler)
+        .on('click', 'a.fullscreen', click_fullscreen_handler);
+      return $this;
 
-  return $this;
+    case 'reset':
+      toggle_playpause_button(true);
+      return $this;
+
+    case 'stop':
+    default:
+      $controls.off();
+      toggle_playpause_button(false);
+      return $this;
+  }
 };
 
   /**
