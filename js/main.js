@@ -16,7 +16,11 @@
    * @param {String} _contentName  The name of the file to request.
    */
   $.fn.additionalContentLoader = function (_contentName) {
-    var _path = 'fragments/' + _contentName + '.html'
+    var _fragmentedContent = _contentName.indexOf('-')
+      , _fileName = _fragmentedContent > 0
+                  ? _contentName.substring(0, _fragmentedContent)
+                  : _contentName
+      , _path = 'fragments/' + _fileName + '.html'
       , $hook = $('#additional-content-wrapper')
           .addClass('loading')
           .removeClass('hidden');
@@ -444,8 +448,10 @@ $.fn.videoControlsMenu = function (_action) {
         switch (_hash) {
 
           // Load bonus content
+          case 'experts-podologie':
+          case 'experts-psychologie':
           case 'experts':
-          case 'bonus':
+          case 'makingoff':
           case 'credits':
             $.fn.additionalContentLoader(_hash);
             return;
