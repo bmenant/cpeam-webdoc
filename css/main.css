@@ -275,6 +275,18 @@ footer > div {
     margin-right: auto;
 }
 
+h3 {
+    font-size: 1.25em;
+    line-height: 1em;
+    margin: 3em auto 0;
+}
+
+p {
+    max-width: 40em;
+    margin: 1.25em auto;
+    text-align: left;
+}
+
 /* Secondary elements to hide when a video is playing. */
 /*
 header,
