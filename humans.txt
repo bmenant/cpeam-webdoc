@@ -3,26 +3,36 @@
 
 # TEAM
 
-    Benjamin Menant -- Lead Front Developper, second photograph -- @bmenant
-    Élodie Miramon -- Project Manager, second camerawoman, second interviewer
-    Céline Lamer -- Web designer & UX, first photograph, video editor
-    Philippe Blaye -- Web writter, first interviewer
-    Jordan Mayoukou -- Web writter, third cameraman
-    Célia Charrier -- First Camerawoman, video editor
-    Marine Marseau -- Sound engineer, video editor, web designer
-    Bruno Illave Bonzano -- Staffing
-    Héléna Lescanne -- Macking-off
-    Cyrcée Millan -- Web writter, Macking-off
-
+    Benjamin Menant -- Web developper, Web designer, Photograph, Cameraman -- menant-benjamin.fr
+    Élodie Miramon -- Project manager, Camerawoman, Interviewer -- elodie.miramon@gmail.com
+    Céline De La Mer -- Web designer, Photograph, Video editor -- celine.delamer@orange.fr
+    Philippe Blaye -- Web writter, Interviewer -- phbayle@yahoo.com
+    Jordan Mayoukou -- Web writter, Cameraman -- jordan-mayoukou.fr
+    Célia Charrier -- Camerawoman, Video editor -- charrier.celia@gmail.com
+    Marine Marseau -- Sound engineer, Video editor -- marine.marsot@gmail.com
+    Bruno Illave Bonzano -- Cameraman, Video editor, Staffing -- abdlg.qinti.fr
+    Héléna Lescanne -- Macking-off -- helena-lescanne.fr
+    Cyrcée Millan -- Camerawoman, Video editor -- cyrcee.millan@gmail.com
 
 # THANKS
 
-    Jean-François Dareths
-    Luc De la Tienda
+    -- Teachers
+    Jean-François Dareths -- Teaching Director 
+    Luc De Tienda -- Audio & Visual Teacher
 
-    @todo interviewés
+    -- Interviewees:
+    @todo
 
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
-    jQuery, Modernizr
+    jQuery, Modernizr, Twitter Bootstrap Affix
+
+# SHARE THE LOVE
+
+    -- Free Open Source Tools
+    Inkscape, The Gimp, Git, Komodo Edit, Mozilla Firefox, Firebug, HTML5 Boilerplate
+    
+    -- Free Open Source Font 
+    Rupture, by Jérémy Landes-Nones -- http://velvetyne.fr/#rupture
+
