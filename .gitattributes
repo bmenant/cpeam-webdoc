@@ -1,7 +1,7 @@
 * text=auto
-.gitattributes
-.gitignore
-img/sources
-LICENSE.md
-README.md
-doc
+.gitattributes export-ignore
+.gitignore export-ignore
+img/sources export-ignore
+LICENSE.md export-ignore
+README.md export-ignore
+doc export-ignore
