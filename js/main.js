@@ -453,8 +453,20 @@ $.fn.videoControlsMenu = function (_action) {
           case 'experts':
           case 'makingoff':
           case 'credits':
+          case 'flickr':
+            $('article', $video_wrapper).videoControl('stop');
+            $('div.column', $video_wrapper).removeClass('closed-column opened-column');
             $.fn.additionalContentLoader(_hash);
-            return;
+            return false;
+
+          // Open video pane
+          case 'video-1':
+          case 'video-2':
+          case 'video-3':
+          case 'video-4':
+          case 'video-5':
+            $('#' + _hash).trigger('click');
+            return true;
 
           // Stop & reset the video panes
           case 'top':
@@ -463,14 +475,17 @@ $.fn.videoControlsMenu = function (_action) {
             $('div.column', $video_wrapper).removeClass('closed-column opened-column');
             // It could also start the first video…
             // $('#video-1').trigger('click');
-            return;
+            return false;
         }
       },
 
       // Menu event Handler
       menu_click_handler = function (evt) {
         var _hash = evt.target.hash.substr(1);
-        menu_controller(_hash);
+        if(menu_controller(_hash)) {
+          evt.preventDefault();
+          evt.stopPropagation();
+        }
       },
 
       // Menu & Event Listener

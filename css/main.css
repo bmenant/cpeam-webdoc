@@ -288,6 +288,12 @@ p {
     text-align: left;
 }
 
+p > strong {
+    font-weight: normal;
+    font-size: 1.25em;
+    line-height: 1em;
+}
+
 /* Secondary elements to hide when a video is playing. */
 /*
 header,
