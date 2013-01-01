@@ -400,9 +400,12 @@ footer {
 -webkit-box-shadow: 0 0 1em rgba(0,0,0,.5);
         box-shadow: 0 0 1em rgba(0,0,0,.5);
 }
+    footer > div {
+        width: 30em;
+    }
     footer > div > * {
         float: left;
-        width: 25%; /* 240px */
+        width: 50%; /* 240px */
     }
     footer ul {
         padding: 0;
