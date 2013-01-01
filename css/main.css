@@ -288,7 +288,7 @@ p {
     text-align: left;
 }
 
-p > strong {
+p strong {
     font-weight: normal;
     font-size: 1.25em;
     line-height: 1em;
@@ -407,13 +407,16 @@ footer {
         float: left;
         width: 50%; /* 240px */
     }
-    footer ul {
+    footer ul,
+    .makingoff ul {
         padding: 0;
     }
-        footer li {
+        footer li,
+        .makingoff li {
             list-style: none;
         }
-        footer li::before {
+        footer li::before,
+        .makingoff li::before {
             content: ' ';
             display: inline-block;
             margin: 0 7px 0 0;
@@ -442,6 +445,11 @@ a:focus {
     color: #000;
     text-decoration: underline;
 }
+p a:link,
+.makingoff a:link {
+    text-decoration: underline;
+}
+
 
 /*
  * Panes layout
@@ -472,15 +480,15 @@ a:focus {
     section > .opened-column {
         width: 40em; /* 640px */
     }
-    article {
+    .video-wrapper article {
         display: table-cell;
         overflow: hidden;
         cursor: pointer;
     }
-    article.no-cursor {
+    .video-wrapper article.no-cursor {
         cursor: none;
     }
-        article > div {
+        .video-wrapper article > div {
             position: relative;
         }
 
@@ -711,7 +719,7 @@ a:focus {
     background-image: url('../img/slider/foot.jpg');
 }
 
-article:hover .video-poster {
+.video-wrapper article:hover .video-poster {
    -moz-transform: scale(1.2);
 -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
@@ -723,7 +731,7 @@ article:hover .video-poster {
  * Video size
  */
 
-article video {
+.video-wrapper article video {
     display: block;
     width: 40em; /* 640px */
     height: 22.5em; /* 360px */
@@ -799,6 +807,16 @@ article video {
         margin-top: 2em;
         padding-top: 3em;
     }
+
+    .makingoff article p {
+        max-width: none;
+    }
+    .makingoff ul {
+        max-width: 40em;
+        margin: auto;
+        text-align: left;
+    }
+
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
