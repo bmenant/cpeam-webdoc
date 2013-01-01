@@ -693,19 +693,26 @@ a:focus {
     right: 0;
     bottom: 0;
     left: 0;
-    background: url('../assets/photos/test1.jpg') no-repeat;
+    background: url('../img/slider/boxe.jpg') 50% 0 repeat-x;
 }
 #video-2 .video-poster {
-    background-image: url('../assets/photos/test2.jpg');
+    background-image: url('../img/slider/danse.jpg');
 }
 #video-3 .video-poster {
-    background-image: url('../assets/photos/test3.jpg');
+    background-image: url('../img/slider/rugby.jpg');
 }
 #video-4 .video-poster {
-    background-image: url('../assets/photos/test4.jpg');
+    background-image: url('../img/slider/roller.jpg');
 }
 #video-5 .video-poster {
-    background-image: url('../assets/photos/test5.jpg');
+    background-image: url('../img/slider/foot.jpg');
+}
+
+article:hover .video-poster {
+   -moz-transform: scale(1.2);
+-webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+        transform: scale(1.2);
 }
 
 
