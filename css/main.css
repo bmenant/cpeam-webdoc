@@ -807,10 +807,6 @@ p a:link,
         margin-top: 2em;
         padding-top: 3em;
     }
-
-    .makingoff article p {
-        max-width: none;
-    }
     .makingoff ul {
         max-width: 40em;
         margin: auto;
