@@ -1,7 +1,57 @@
-<h2 id="flickr">À vous de jouer&#8239;!</h2>
+<section>
+    <h2 id="flickr">À vous de jouer&#8239;!</h2>
 
-<p><strong>Avez-vous gardé vos premières chaussures&#8239;?</strong> Oui&#8239;? Alors, courrez vite cherchez vos premiers crampons, vos premières pointes, vos premier patins… vos vieilles godasses… vos beaux souliers, avec lesquels vous avez vécu un moment fort…
-<br />Prenez-les en photo, puis publiez-les sur <a href="http://www.flickr.com">Flickr</a>, en les taggant <strong><a href="http://www.flickr.com/photos/tags/chausstonunivers">chausstonunivers</a></strong>.
-<br />Elles rejoindront cette collection communautaire&#8239;!</p>
+    <p><strong>Avez-vous gardé vos premières chaussures&#8239;?</strong> Oui&#8239;? Alors, courrez vite cherchez vos premiers crampons, vos premières pointes, vos premiers patins… vos vieilles godasses… vos beaux souliers, avec lesquels vous avez vécu un moment fort…
+    <br />Prenez-les en photo, puis publiez-les sur <a href="http://www.flickr.com">Flickr</a>, en les taggant <strong><a href="http://www.flickr.com/photos/tags/chausstonunivers">chausstonunivers</a></strong>.
+    <br />Elles rejoindront cette collection communautaire&#8239;!</p>
 
-<p>Ici, l’intégration du flux Flickr.</p>
+    <div id="flickr-ugc"></div>
+</section>
+
+<section>
+    <h3>Notre album photo sur Flickr</h3>
+    <div id="flickr-team"></div>
+</section>
+
+<script src="https://www.google.com/jsapi"></script>
+<script>
+  //google.load("feeds", "1");
+  //var feed_ugc_url  = 'https://secure.flickr.com/services/feeds/photos_public.gne'
+  //                  + '?tags=ienjoyedone%E2%80%99scofoodmeal'
+  //                  + '&lang=fr-fr'
+  //                  + '&format=rss_200'
+  //  , id_ugc = 'flickr-ugc'
+  //  , feed_team_url = 'https://secure.flickr.com/services/feeds/photos_public.gne'
+  //                  + '?tags=ienjoyedone%E2%80%99scofoodmeal'
+  //                  + '&lang=fr-fr'
+  //                  + '&format=rss_200'
+  //  , id_team = 'flickr-team'
+  //  , feed_nb = 6
+  //  , handler = function (result, id) {
+  //      if (!result.error) {
+  //        var html = ''
+  //          , $hook = document.getElementById(id);
+  //        for (var i = 0; i < result.feed.entries.length; i++) {
+  //          var content = result.feed.entries[i].content
+  //              .replace(/^.*[\n\r]/, '');
+  //          html += content;
+  //        }
+  //        $hook.innerHTML = html;
+  //      }
+  //    }
+  //  , initialize_ugc = function () {
+  //      var feed_ugc = new google.feeds.Feed(feed_ugc_url);
+  //      feed_ugc.setNumEntries(feed_nb);
+  //      feed_ugc.load(function (result) { handler(result, id_ugc); });
+  //    }
+  //  , initialize_team = function () {
+  //      var feed_team = new google.feeds.Feed(feed_team_url);
+  //      feed_team.setNumEntries(feed_nb);
+  //      feed_team.load(function (result) { handler(result, id_team); });
+  //    }
+  //  , initialize = function () {
+  //      initialize_ugc();
+  //      initialize_team();
+  //  };
+  //google.setOnLoadCallback(initialize);
+</script>
