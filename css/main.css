@@ -416,7 +416,8 @@ footer {
             list-style: none;
         }
         footer li::before,
-        .makingoff li::before {
+        .makingoff li::before,
+        .video-info li::before {
             content: ' ';
             display: inline-block;
             margin: 0 7px 0 0;
@@ -600,6 +601,36 @@ p a:link,
                 vertical-align: text-bottom;
                 background: url('../img/sprite.png') no-repeat -50px -72px;
             }
+
+        /* Video info */
+        .video-info {
+            bottom: 0;
+            left: 0;
+            position: absolute;
+            right: 50%;
+            top: 0;
+            z-index: 1;
+            padding: 2.5em;
+            background: rgb(250,250,250);
+            background: rgba(255,255,255,.8);
+       -moz-box-shadow: 0 0 1em rgba(255,255,255,.8);
+    -webkit-box-shadow: 0 0 1em rgba(255,255,255,.8);
+            box-shadow: 0 0 1em rgba(255,255,255,.8);
+        }
+        .video-info h2 {
+            padding-top: 0;
+        }
+        .video-info h3 {
+            display: inline-block;
+        }
+        .video-info p {
+            display: inline;
+        }
+        .video-info > ul {
+            list-style: none;
+            margin: 1.25em 0 0;
+            padding: 0;
+        }
 
         /* video controls */
         .video-controls {
