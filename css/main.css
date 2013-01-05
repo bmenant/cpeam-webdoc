@@ -659,7 +659,7 @@ p a:link,
         }
         .video-controls div a {
             position: absolute;
-            bottom: 5em;
+            bottom: 7.5em;
             left: -7.5em;
             display: block;
             width: 10em;
@@ -675,7 +675,7 @@ p a:link,
             transition: left .2s;
         }
         .video-controls .fullscreen {
-            bottom: 10em;
+            bottom: 12.5em;
         }
         .video-controls div a:hover,
         .video-controls div a:focus,
