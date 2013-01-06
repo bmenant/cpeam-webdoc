@@ -434,7 +434,9 @@ $.fn.videoControlsMenu = function (_action) {
       // Event handlers
     , click_fullscreen_handler = function (evt) {
         $this.videoControl('fullscreen');
-        // @todo toggle button
+
+        evt.preventDefault();
+        evt.stopPropagation();
       }
     , click_playpause_handler = function (evt) {
         var _playing = $playpause_button.hasClass('pause');
