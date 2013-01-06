@@ -390,6 +390,7 @@ header {
 }
 footer {
     padding: 2.5em 0 5em;
+    text-align: center;
     background: rgba(60,20,0,.4);
     background: -moz-radial-gradient(center, ellipse cover, rgba(60,20,0,.8) 0%, rgba(60,20,0,.4) 100%);
     background: -webkit-gradient(radial, 0 200%, 0px, center center, 100%, color-stop(0%,rgba(60,20,0,.8)), color-stop(100%,rgba(60,20,0,.4)));
@@ -401,12 +402,12 @@ footer {
 -webkit-box-shadow: 0 0 1em rgba(0,0,0,.5);
         box-shadow: 0 0 1em rgba(0,0,0,.5);
 }
-    footer > div {
-        width: 30em;
+    footer ul {
+        display: inline-block;
     }
-    footer > div > * {
-        float: left;
-        width: 50%; /* 240px */
+    footer li {
+        display: inline-block;
+        margin-right: 3px;
     }
     footer ul,
     .makingoff ul {
@@ -422,6 +423,15 @@ footer {
             content: ' ';
             display: inline-block;
             margin: 0 7px 0 0;
+            width: 18px;
+            height: 10px;
+            vertical-align: middle;
+            background: url('../img/sprite.png') -34px -72px no-repeat;
+        }
+        footer li:last-child::after {
+            content: ' ';
+            display: inline-block;
+            margin: 0 0 0 7px;
             width: 18px;
             height: 10px;
             vertical-align: middle;
@@ -762,6 +772,16 @@ p a:link,
     background: url('../img/slider/boxe.jpg') 100% 0;
 }
 #video-1:hover .video-poster {
+    background-image: -moz-radial-gradient(center, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/boxe.jpg');
+    background-image: -webkit-gradient(radial, 25% 150%, 0px, center center, 100%, color-stop(0%,rgba(60,20,0,.6)), color-stop(100%,rgba(60,20,0,0)))
+                    , url('../img/slider/boxe.jpg');
+    background-image: -webkit-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/boxe.jpg');
+    background-image: -o-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/boxe.jpg');
+    background-image: -ms-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/boxe.jpg');
     background-image: radial-gradient(circle at 25% 150%, rgba(60,20,0,.6) 0%, rgba(60,20,0,.0) 100%)
                     , url('../img/slider/boxe.jpg');
 }
@@ -770,6 +790,16 @@ p a:link,
     background-position: 44% 0;
 }
 #video-2:hover .video-poster {
+    background-image: -moz-radial-gradient(center, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/danse.jpg');
+    background-image: -webkit-gradient(radial, 25% 150%, 0px, center center, 100%, color-stop(0%,rgba(60,20,0,.6)), color-stop(100%,rgba(60,20,0,0)))
+                    , url('../img/slider/danse.jpg');
+    background-image: -webkit-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/danse.jpg');
+    background-image: -o-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/danse.jpg');
+    background-image: -ms-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/danse.jpg');
     background-image: radial-gradient(circle at 25% 150%, rgba(60,20,0,.6) 0%, rgba(60,20,0,.0) 100%)
                     , url('../img/slider/danse.jpg');
 }
@@ -778,6 +808,16 @@ p a:link,
     background-position: 2% 0;
 }
 #video-3:hover .video-poster {
+    background-image: -moz-radial-gradient(center, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/rugby.jpg');
+    background-image: -webkit-gradient(radial, 25% 150%, 0px, center center, 100%, color-stop(0%,rgba(60,20,0,.6)), color-stop(100%,rgba(60,20,0,0)))
+                    , url('../img/slider/rugby.jpg');
+    background-image: -webkit-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/rugby.jpg');
+    background-image: -o-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/rugby.jpg');
+    background-image: -ms-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/rugby.jpg');
     background-image: radial-gradient(circle at 25% 150%, rgba(60,20,0,.6) 0%, rgba(60,20,0,.0) 100%)
                     , url('../img/slider/rugby.jpg');
 }
@@ -786,6 +826,16 @@ p a:link,
     background-position: 66% 0;
 }
 #video-4:hover .video-poster {
+    background-image: -moz-radial-gradient(center, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/roller.jpg');
+    background-image: -webkit-gradient(radial, 25% 150%, 0px, center center, 100%, color-stop(0%,rgba(60,20,0,.6)), color-stop(100%,rgba(60,20,0,0)))
+                    , url('../img/slider/roller.jpg');
+    background-image: -webkit-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/roller.jpg');
+    background-image: -o-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/roller.jpg');
+    background-image: -ms-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/roller.jpg');
     background-image: radial-gradient(circle at 25% 150%, rgba(60,20,0,.6) 0%, rgba(60,20,0,.0) 100%)
                     , url('../img/slider/roller.jpg');
 }
@@ -794,6 +844,16 @@ p a:link,
     background-position: 8% 0;
 }
 #video-5:hover .video-poster {
+    background-image: -moz-radial-gradient(center, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/foot.jpg');
+    background-image: -webkit-gradient(radial, 25% 150%, 0px, center center, 100%, color-stop(0%,rgba(60,20,0,.6)), color-stop(100%,rgba(60,20,0,0)))
+                    , url('../img/slider/foot.jpg');
+    background-image: -webkit-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/foot.jpg');
+    background-image: -o-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/foot.jpg');
+    background-image: -ms-radial-gradient(25% 150%, circle cover, rgba(60,20,0,.6) 0%, rgba(60,20,0,0) 100%)
+                    , url('../img/slider/foot.jpg');
     background-image: radial-gradient(circle at 25% 150%, rgba(60,20,0,.6) 0%, rgba(60,20,0,.0) 100%)
                     , url('../img/slider/foot.jpg');
 }
@@ -873,6 +933,10 @@ p a:link,
             box-shadow: 0 0 1em rgba(0,0,0,.6);
         }
     /* #top backlink */
+    .additional-content-wrapper > nav {
+        max-height: 7.5em;
+        min-height: 7.5em;
+    }
     .additional-content-wrapper > nav > a {
         display: inline-block;
         margin-top: 2.5em;
