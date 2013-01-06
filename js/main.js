@@ -99,6 +99,7 @@
    */
   $.fn.videoControlsDisplay = function (_action) {
     var _hide_again = 0
+      , _webkit_fix = 0
       , $this = this
       , $controls = $('div.video-controls', $this)
         // Helpers
@@ -112,10 +113,13 @@
         }
         // Event handlers
       , mousemove_video_handler = function (evt) {
-          // show controls
-          window.clearTimeout(_hide_again);
-          show();
-          _hide_again = window.setTimeout(hide, 2000);
+          if (++_webkit_fix > 2) {
+            _webkit_fix = 0;
+            // show controls
+            window.clearTimeout(_hide_again);
+            show();
+            _hide_again = window.setTimeout(hide, 2000);
+          }
         }
       , mouseenter_controls_handler = function (evt) {
           $this.off('mousemove', mousemove_video_handler);
