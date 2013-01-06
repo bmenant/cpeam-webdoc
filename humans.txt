@@ -17,22 +17,25 @@
 # THANKS
 
     -- Teachers
-    Jean-François Dareths -- Teaching Director 
+    Jean-François Dareths -- Teaching Director
     Luc De Tienda -- Audio & Visual Teacher
 
     -- Interviewees:
-    @todo
+    Mitko & Mr Zirouri -- Boxing
+    Torha & Laura -- Rugby
+    Jesse -- Football
+    Mélissa, Pauline & Ms Marchand-Rollin -- Dancing
+    Pierre-Henry -- Roller
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3
+    HTML5, CSS3 (This is not a good practice, but: sorry for Internet Explorer users)
     jQuery, Modernizr, Twitter Bootstrap Affix
 
 # SHARE THE LOVE
 
     -- Free Open Source Tools
-    Inkscape, The Gimp, Git, Komodo Edit, Mozilla Firefox, Firebug, HTML5 Boilerplate
-    
-    -- Free Open Source Font 
-    Rupture, by Jérémy Landes-Nones -- http://velvetyne.fr/#rupture
+    Inkscape, The Gimp, Git, Komodo Edit, Mozilla Firefox, Firebug, HTML5 Boilerplate, Subtle Patterns, Hand Brake, Firefogg
 
+    -- Free Open Source Font
+    Rupture, by Jérémy Landes-Nones -- http://velvetyne.fr/#rupture
