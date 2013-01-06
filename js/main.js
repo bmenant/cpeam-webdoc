@@ -148,6 +148,32 @@
   };
 
   /**
+   * VIDEO INFO CONTROLLER
+   * Show video info and listen click to play video.
+   *
+   * @param {Boolean} _opening  Do we open or close this stuff?
+   */
+  $.fn.videoInfoControl = function (_opening) {
+    var $this = this
+      , $info = $('div.video-info', $this)
+      , click_play_handler = function (evt) {
+          $this.videoControl('play');
+          
+          evt.preventDefault();
+          evt.stopPropagation();
+        };
+
+    if (_opening) {
+      $info.removeClass('hidden');
+      $this.on('click', 'a.play', click_play_handler);
+    }
+    else {
+      $info.addClass('hidden');
+      $this.off('click', 'a.play', click_play_handler);
+    }
+  };
+
+  /**
    * VIDEO CONTROLLER
    * Look for each video element inside the given jQuery Object
    * and execute provided action.
@@ -178,6 +204,8 @@
 
       switch (_action) {
         case 'play':
+          // Kick out the info…
+          $article.videoInfoControl(false);
           // Drop out the poster…
           $poster.addClass('hidden');
           // Play…
@@ -201,6 +229,8 @@
         case 'stop':
           // Please, disturb…
           //$.fn.secondaryElementsController('show');
+          // Kick out the info…
+          $article.videoInfoControl(false);
           // Get back the poster…
           $poster.removeClass('hidden');
           // Stop playing!
@@ -264,8 +294,8 @@
         if (!$col.hasClass('opened-column')) {
           // Stop all videos
           $video_wrapper.videoControl('stop');
-          // Play opening video
-          $(this).videoControl('play');
+          // Show video info
+          $(this).videoInfoControl(true);
 
           // Open choosen video
           $col
