@@ -815,9 +815,11 @@ p a:link,
     width: 40em; /* 640px */
     height: 22.5em; /* 360px */
 }
+:-webkit-fullscreen video { max-height: 100%; width: 100% !important; height: 100% !important; }
 :-webkit-full-screen video { max-height: 100%; width: 100% !important; height: 100% !important; }
-:-moz-full-screen video { max-height: 100%; width: 100% !important; height: 100% !important; }
-:full-screen video { max-height: 100%; width: 100% !important; height: 100% !important; }
+:-webkit-full-screen { position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: #000; }
+:-moz-full-screen video { max-height: 100%; width: 100% !important; /*height: 100% !important;*/ }
+:fullscreen video { max-height: 100%; width: 100% !important; height: 100% !important; }
 
 
 /*

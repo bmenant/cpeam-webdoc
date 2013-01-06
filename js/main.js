@@ -158,7 +158,7 @@
       , $info = $('div.video-info', $this)
       , click_play_handler = function (evt) {
           $this.videoControl('play');
-          
+
           evt.preventDefault();
           evt.stopPropagation();
         };
@@ -247,13 +247,17 @@
           // allready fullscreen, cancel it
           if (document.fullscreen
           ||  document.mozFullScreen
-          ||  document.webkitFullscreen) {
+          ||  document.webkitFullScreen
+          ||  document.webkitIsFullScreen
+          || (document.fullscreenElement && document.fullscreenElement !== null)) {
             if (document.cancelFullscreen) {
               document.cancelFullscreen();
+            } else if (document.exitFullscreen) {
+              document.exitFullscreen();
             } else if (document.mozCancelFullScreen) {
               document.mozCancelFullScreen();
-            } else if (document.webkitCancelFullscreen) {
-              document.webkitCancelFullscreen();
+            } else if (document.webkitCancelFullScreen) {
+              document.webkitCancelFullScreen();
             }
             break;
           }
@@ -262,8 +266,8 @@
             $article[0].requestFullscreen();
           } else if ($article[0].mozRequestFullScreen) {
             $article[0].mozRequestFullScreen();
-          } else if ($article[0].webkitRequestFullscreen) {
-            $article[0].webkitRequestFullscreen();
+          } else if ($article[0].webkitRequestFullScreen) {
+            $article[0].webkitRequestFullScreen();
           }
           break;
         default:
