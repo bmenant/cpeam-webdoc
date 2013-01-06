@@ -245,7 +245,7 @@ body {
    Modify as content requires.
    ========================================================================== */
 
-@media only screen and (min-width: 35em) {
+/*@media only screen and (min-width: 35em) {
     /* Style adjustments for viewports that meet the condition */
 
 
@@ -257,7 +257,7 @@ html, body {
     background:
         #EEE
         /*url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/cream_dust.png")*/
-        url("http://subtlepatterns.com/patterns/ricepaper.png")
+        url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/ricepaper.png")
         repeat
         0px 0px;
 }
@@ -959,7 +959,7 @@ p a:link,
         text-align: left;
     }
 
-}
+/*}*/
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
        only screen and (min-resolution: 144dpi) {
