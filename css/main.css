@@ -410,15 +410,18 @@ footer {
         margin-right: 3px;
     }
     footer ul,
-    .makingoff ul {
+    .makingoff ul,
+    .credits ul {
         padding: 0;
     }
         footer li,
-        .makingoff li {
+        .makingoff li,
+        .credits li {
             list-style: none;
         }
         footer li::before,
         .makingoff li::before,
+        .credits li::before,
         .video-info li::before {
             content: ' ';
             display: inline-block;
@@ -437,6 +440,27 @@ footer {
             vertical-align: middle;
             background: url('../img/sprite.png') -34px -72px no-repeat;
         }
+    /*.facebook::before, .twitter::after {
+        content: none !important;
+    }*/
+    .facebook > a:before {
+        content: " ";
+        display: inline-block;
+        height: 14px;
+        width: 11px;
+        margin-right: 3px;
+        vertical-align: text-top;
+        background: url("../img/sprite.png") no-repeat 0 -120px;
+    }
+    .twitter > a:before {
+        content: " ";
+        display: inline-block;
+        height: 14px;
+        width: 11px;
+        margin-right: 3px;
+        vertical-align: text-top;
+        background: url("../img/sprite.png") no-repeat -11px -120px;
+    }
 
 /**
  * Links
@@ -458,10 +482,19 @@ a:focus {
     text-decoration: underline;
 }
 p a:link,
-.makingoff a:link {
+.makingoff a:link,
+.credits a:link {
     text-decoration: underline;
 }
-
+.target-blank:after {
+  content: " ";
+  display: inline-block;
+  height: 12px;
+  width: 12px;
+  margin-left: 2px;
+  vertical-align: top;
+  background: url("../img/sprite.png") no-repeat -24px -119px;
+}
 
 /*
  * Panes layout
@@ -878,7 +911,7 @@ p a:link,
 :-webkit-fullscreen video { max-height: 100%; width: 100% !important; height: 100% !important; }
 :-webkit-full-screen video { max-height: 100%; width: 100% !important; height: 100% !important; }
 :-webkit-full-screen { position: absolute; top: 0; bottom: 0; left: 0; right: 0; background: #000; }
-:-moz-full-screen video { max-height: 100%; width: 100% !important; /*height: 100% !important;*/ }
+:-moz-full-screen video { max-height: 100%; width: 100% !important; height: 100% !important; }
 :fullscreen video { max-height: 100%; width: 100% !important; height: 100% !important; }
 
 
@@ -932,6 +965,10 @@ p a:link,
     -webkit-box-shadow: 0 0 1em rgba(0,0,0,.6);
             box-shadow: 0 0 1em rgba(0,0,0,.6);
         }
+        .additional-content-wrapper video {
+            height: 22.5em;
+            width: 40em;
+        }
     /* #top backlink */
     .additional-content-wrapper > nav {
         max-height: 7.5em;
@@ -953,7 +990,8 @@ p a:link,
         margin-top: 2em;
         padding-top: 3em;
     }
-    .makingoff ul {
+    .makingoff ul,
+    .credits ul {
         max-width: 40em;
         margin: auto;
         text-align: left;
