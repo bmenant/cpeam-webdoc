@@ -490,8 +490,8 @@ $.fn.videoControlsMenu = function (_action) {
         switch (_cleaned_hash) {
 
           // Load bonus content
-          case 'experts-podologie':
-          case 'experts-psychologie':
+          case 'experts-podo':
+          case 'experts-psy':
           case 'experts':
           case 'makingoff':
           case 'credits':

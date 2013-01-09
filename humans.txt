@@ -3,15 +3,15 @@
 
 # TEAM
 
-    Benjamin Menant -- Web developper, Web designer, Photograph, Cameraman -- menant-benjamin.fr
+    Benjamin Menant -- Lead Web developper & designer, Photograph, Cameraman -- http://menant-benjamin.fr
     Élodie Miramon -- Project manager, Camerawoman, Interviewer -- elodie.miramon@gmail.com
-    Céline De La Mer -- Web designer, Photograph, Video editor -- celine.delamer@orange.fr
+    Céline Delamer -- Web designer, Photograph, Video editor -- celine.delamer@orange.fr
     Philippe Blaye -- Web writter, Interviewer -- phbayle@yahoo.com
-    Jordan Mayoukou -- Web writter, Cameraman -- jordan-mayoukou.fr
-    Célia Charrier -- Camerawoman, Video editor -- charrier.celia@gmail.com
+    Jordan Mayoukou -- Web writter, Cameraman -- http://jordan-mayoukou.fr
+    Célia Charrier -- Camerawoman, Video editor, Interviewer -- charrier.celia@gmail.com
     Marine Marseau -- Sound engineer, Video editor -- marine.marsot@gmail.com
-    Bruno Illave Bonzano -- Cameraman, Video editor, Staffing -- abdlg.qinti.fr
-    Héléna Lescanne -- Macking-off -- helena-lescanne.fr
+    Bruno Illave Bonzano -- Cameraman, Video editor, Staffing -- http://abdlg.qinti.fr
+    Héléna Lescanne -- Macking-off -- http://helena-lescanne.fr
     Cyrcée Millan -- Camerawoman, Video editor -- cyrcee.millan@gmail.com
 
 # THANKS
@@ -26,6 +26,8 @@
     Jesse -- Football
     Mélissa, Pauline & Ms Marchand-Rollin -- Dancing
     Pierre-Henry -- Roller
+    Martine Versel -- Psychoanalyst
+    Pascal Petit -- Chiropodist 
 
 # TECHNOLOGY COLOPHON
 
