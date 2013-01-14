@@ -9,7 +9,7 @@
     Philippe Blaye -- Web writter, Interviewer -- phbayle@yahoo.com
     Jordan Mayoukou -- Web writter, Cameraman -- http://jordan-mayoukou.fr
     Célia Charrier -- Camerawoman, Video editor, Interviewer -- charrier.celia@gmail.com
-    Marine Marseau -- Sound engineer, Video editor -- marine.marsot@gmail.com
+    Marine Marsot -- Sound engineer, Video editor -- marine.marsot@gmail.com
     Bruno Illave Bonzano -- Cameraman, Video editor, Staffing -- http://abdlg.qinti.fr
     Héléna Lescanne -- Macking-off -- http://helena-lescanne.fr
     Cyrcée Millan -- Camerawoman, Video editor -- cyrcee.millan@gmail.com
@@ -31,8 +31,8 @@
 
 # TECHNOLOGY COLOPHON
 
-    HTML5, CSS3 (This is not a good practice, but: sorry for Internet Explorer users)
-    jQuery, Modernizr, Twitter Bootstrap Affix
+    HTML5, CSS3 (Sorry for old-browser-users…)
+    jQuery, Modernizr, Twitter Bootstrap Affix, jQuery Smooth Scroll & BBQ plugins
 
 # SHARE THE LOVE
 
