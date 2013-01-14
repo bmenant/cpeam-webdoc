@@ -483,6 +483,7 @@
 
       // Menu event Handler
       menu_click_handler = function (evt) {
+        if (/^mailto/.test(evt.target.href)) return;
         var _exec = menu_controller(evt.target.hash);
         if(_exec) {
           evt.preventDefault();
