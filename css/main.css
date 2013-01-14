@@ -39,6 +39,13 @@ body {
     text-shadow: none;
 }
 
+:-moz-focusring {
+    outline: none;
+}
+*:focus:not(a) {
+    outline: none;
+}
+
 /*
  * A better looking default horizontal rule
  */
